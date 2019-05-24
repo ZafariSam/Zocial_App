@@ -434,7 +434,7 @@ var vm = new Vue({
       let emlAlt = eml.toLowerCase();
       this.emailAdd = emlAlt;
     }
-    
+
   }, //End of Watcher
 
   created() {
@@ -467,6 +467,7 @@ var vm = new Vue({
   }, //End of Mounted Hook
 
   beforeDestroy(){
+    
   }
 
 }) //End of Vue Component
