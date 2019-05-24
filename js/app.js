@@ -163,7 +163,7 @@ var vm = new Vue({
     //OrderData
     emailInput: null,
     orderInput: "",
-    currentOrder:"#1234567891234567890",
+    currentOrder:"#123456789123456789",
     fetchedData: null,
     fetchedEmail: null,
 
