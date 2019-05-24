@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/png" href="img/64w/Favicon_01.png"/>
+    <title>Zocial App | Studio Zafari</title>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,800" rel="stylesheet">
+
+    <style>
+      :root{
+        --dark: #25003d;
+        --green: #00ecbc;
+        --red: #ff2e64;
+        --purple: #602d8f;
+      }
+      [v-cloak] > * {
+         display:none;
+       }
+       [v-cloak]::before {
+         content: "";
+       }
+      *{
+        font-family: 'Work Sans', sans-serif;
+        transition: all 1s;
+        text-decoration: none;
+        scroll-behavior: smooth;
+      }
+      body{
+        background-color: var(--dark, #25003d);
+        margin: 0px;
+        color: white;
+      }
+      button{
+        cursor: pointer;
+      }
+      h1{
+        font-size: 3rem;
+        margin: 0px;
+        font-weight: 900;
+      }
+      h4{
+        font-weight:200;
+      }
+      h6{
+        color:var(--green);
+        font-weight: 200;
+        letter-spacing:10px;
+        text-transform: uppercase;
+        margin-left: 3px;
+      }
+      span{
+        color: var(--green);
+      }
+      input{
+        border-radius: 20px 0px 0px 20px; padding: 10px 20px; background-color: white; font-size: 0.85em; font-weight: 500; border: none;
+      }
+      input:focus{
+        outline-color: #fff0;
+        outline-style: none;
+        border-style: none;
+      }
+      a:visited{
+        color:inherit;
+      }
+      ::placeholder {
+      }
+      .Top-Btn{
+        background-color: var(--red);
+        width: 110px;
+        padding: 10px 20px;
+        margin: 20px 0px;
+        color: white;
+        margin-right: 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.5s;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .Top-Btn:hover{
+        background-color: var(--purple);
+      }
+      .sb-details-web{
+        width: 50%; background-color: var(--dark);
+      }
+      .sb-details-web-block{
+        background-color: #fff0; width: 100%; border-radius: 0px;
+        border-width: 1px; border-style: solid; border-color: white;
+      }
+      .sb-details-web-tab{
+        width: 80%; position: sticky; top: 100px; margin: 15vh auto 50px auto; border-radius: 0px;
+      }
+      .sb-details-web-block:hover{
+        background-color: #fff1;
+      }
+      .ex-deatils{
+        width: 50%;
+        height: 100%;
+      }
+      .sb-details-mob{
+        display: none;
+        width: 100%;
+        height: 12vh;
+        position: fixed;
+        background-color: var(--purple);
+        z-index: 2;
+        bottom: 0px;
+      }
+      .sb-details-mob:hover{
+        height: 13vh;
+      }
+      .demo-scrn-tab{
+        width: 200px; background-color: #602d8f; position: relative; padding: 10px 20px; box-shadow: 15px 15px 10px #0003;
+        animation-name: slide; animation-iteration-count: infinite;
+      }
+      #ex-tab-01{
+        animation-duration: 5s;
+      }
+      #ex-tab-02{
+        animation-duration: 6s;
+      }
+      .cata-titles{
+        opacity: 0;
+      }
+      .cata-box:hover{
+        background-color: #0008;
+      }
+      .cata-box:hover .cata-titles{
+        opacity: 1;
+      }
+      .cata-loop{
+        transform: translateY(0px);
+      }
+      .cata-loop:hover{
+        transform: translateY(-10px);
+      }
+      .counter-01{
+        color: #fff8; padding: 10px; margin-left: auto; background-color: var(--green); color:var(--dark); margin: 0; height: 20px; width: 10px
+      }
+      .tem-intro{
+        width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
+      }
+      .tem-intro-text{
+        text-align: center;
+        padding: 6% 10% 0px 10%;
+      }
+      .underline{
+        width: 10%;
+      }
+      .stage-panel{
+        padding: 20px 40px; background-color: #fff;
+      }
+      .stage-panel:hover{
+        background-color: var(--green);
+      }
+      .how-works-btn:hover .underline{
+        width: 90%;
+      }
+      .custom-col-display{
+        background-color: #fff;
+      }
+      .cata-container{
+        padding: 6% 2% 5% 10%;
+      }
+      .social-links a img{
+        opacity: 1;
+      }
+      .social-links a img:hover{
+        opacity: 0.5;
+      }
+      .how-it-works{
+        padding: 10% 5% 10% 10%
+      }
+
+      .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+      .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+      }
+
+/* Animation  */
+      @keyframes slide {
+        0% {transform: translate(0, 0); box-shadow: init;}
+        50% {transform: translate(10px, 10px); box-shadow: 5px 5px 10px #0004; }
+        100% {transform: translate(0, 0) box-shadow: init;}
+      }
+      @keyframes size {
+        0% {width: 0px;}
+        50% {width: 200px;}
+        100% {width: 0px}
+      }
+/* Responsive CSS */
+
+      @media (max-width: 800px){
+        .sb-details-web{
+          display: none;
+        }
+        .ex-deatils{
+          width: 100%;
+        }
+        .sb-details-mob{
+          display: block;
+        }
+        .process-panel{
+          display:none;
+        }
+        .cata-container{
+          padding: 10% 2% 5% 5%;
+        }
+        .cata-container p{
+          padding-right: 10%;
+        }
+        .how-it-works{
+          padding: 10%;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div v-if="loading" id="loader" class='loader' style="width: 100%; max-height: 100vh;">
+        <div style="width:50px; height: 50px; margin: auto;"><img width="50px" height="50px" style="margin: 45vh auto;" src="assets/Loader_01.gif"/>
+        </div>
+      </div>
+      <div class="nav-bar"
+        style="width: 100%; position: fixed; z-index: 100; background-color: var(--dark); border-width: 1px; border-bottom-style: solid; border-color: var(--purple);"
+        v-show="!loading"
+        >
+        <div style="padding: 20px 10%; display: flex;">
+          <a href="https://www.studiozafari.com"><img src="img/svg/Zafari_Icon_Color.svg" alt="Zaf Logo White" width="40px" height= "40px"></a>
+          <div style="margin-left: auto; display: flex;">
+            <a href="/orders.html"><div style="padding: 10px;">My Orders</div></a>
+            <div class ="social-links" style="padding: 12px">
+              <a href="https://twitter.com/StudioZafari" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/Twitter_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+              <a href="https://www.youtube.com/channel/UCwbWyaVhXMCslLqtx36GpGw?view_as=subscriber" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/YT_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+              <a href="https://www.instagram.com/studio_zafari/" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/Insta_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <transition name="fade">
+        <div title="Header"
+          v-if="!sent"
+          v-show="!loading"
+          >
+          <div class="" style="padding: 180px 10% 100px; text-align: center;">
+            <h1 style="font-size: 3em; font-weight: 100;"><b>Create</b> Social Content<h1>
+            <h3 style="font-weight: 200;">Build engaging social media posts with professional designers</h3>
+
+            <div style= "width:200px; margin: auto;"><a href="#catalogue"><div class="Top-Btn" style="width: 100%; padding: 10px 0">Get Started</div></a></div>
+          </div>
+        </div>
+      </transition>
+
+      <transition name="fade">
+        <div
+          id="catalogue"
+          style="width: 100%; height: 100%; background-color: var(--dark); min-height: 100vh; overflow: hidden;"
+          v-if="!sent"
+          v-show="!loading"
+          >
+          <div class="cata-container"
+            style=""
+            >
+            <div
+              style="width: 90%; height: 100%; margin: 0 20px;"
+              >
+              <div class="" style="">
+                <h6 style="margin: 10px 0px;">Step 01</h6>
+                <h1 style="font-size: ">Select a design<span>.</span></h1>
+                <p style="font-size: 1.1em"><b>Create an engaging social media campaign.</b> Get started by choosing one of the templates below.</p>
+                <a href="#how" style="color: white;">
+                  <div class="how-works-btn"style="width: 150px; margin-bottom: 10px;">
+                    <h5 style="font-size: 1.2em; margin-bottom: 5px;">How it works</h5>
+                    <div class="underline" style="height: 3px; background-color: var(--green);"></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Catalogue element loop -->
+            <div style="display: flex; flex-wrap: wrap;" v-bind:style="{ transform: 'translateX(' + cataScroll + 'px)'}">
+              <div class="cata-loop"
+                  v-for="(cata, index) in temCata"
+                  v-if="index <= catalogueLimit[1] && index >= catalogueLimit[0]"
+                  v-bind:id="cata.Ref"
+                  style="margin: 20px; background-color: white; background-size: cover; border-radius: 10px; background-position: center;"
+                  @click="selected = true, selectedTem = cata"
+                  v-bind:style="{ backgroundImage: 'url(' + cata.Imgs[0] + ')' }"
+                  >
+                  <a href='#selection'>
+                    <div class="cata-box"
+                      style=" width: 400px; height: 300px;"
+                      >
+                      <div class="cata-titles"
+                        style="padding: 23% 40px 0; text-align: center;">
+                          <h3 style="color: white;">
+                            {{ cata.Title }}
+                          </h3>
+                          <p style="color: white;">{{ cata.Tagline }}</p>
+                          <p style="color: white;">Length: <b>{{ cata.Length }} Seconds</b></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div @click="addMore()" v-show="cataLength > catalogueLimit[1]" style="width: 100%; margin: 0 20px; cursor: pointer">
+                <b>Show More</b><img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 5px; transform: rotate(90deg);">
+              </div>
+          </div>
+        </div>
+      </transition>
+
+      <!-- Selection Div -->
+      <span id="selection"></span>
+      <transition name="fade">
+        <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected">
+          <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden">
+
+            <div class="" style="width: 100%; height: 100%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+              <div class="" style="width: 100%; height: 500px; background-color: #0005">
+                <div style="padding-top: 220px">
+                  <div style="width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px;">
+                    Play Video
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tem-intro-text" style="">
+              <h6>Template Title</h6>
+              <h1>{{ selectedTem.Title }}<span>.</span></h1>
+              <h2>{{ selectedTem.Tagline }}</h2>
+            </div>
+
+            <div style="padding: 50px 10%">
+              <!-- <a href="#customize"><div class="Top-Btn" style="width: 200px;">Customize Campaign</div></a> -->
+            </div>
+          </div>
+          <section id="customize" style="width: 100%; display: flex">
+            <div class="ex-deatils" style="">
+              <div class="" id="example-01" style="height: 90vh; padding: 20% 10%; box-sizing: border-box;">
+                <h6>Section Title</h6>
+                <h1>Bold Title<span>.</span></h1>
+                <h2>Sub Title goes here blah blah blah...</h2>
+                <h4>This is where the main body text goes. This section will be the longest and go into the detail blah blah blah...</h4>
+                <a href="#example-02"><div class="Top-Btn">Continue</div></a>
+              </div>
+              <div class="" id="example-02" style="height: 90vh; padding: 15% 10%; box-sizing: border-box;">
+                <h6>Section Title</h6>
+                <h1>Bold Title<span>.</span></h1>
+                <h2>Sub Title goes here blah blah blah...</h2>
+                <h4>This is where the main body text goes. This section will be the longest and go into the detail blah blah blah...</h4>
+                <div class="Top-Btn" style="">Features</div>
+              </div>
+            </div>
+            <div class="sb-details-web" style="">
+              <div class="sb-details-web-tab" style="">
+                <a href="#catalogue"><div class="Top-Btn"
+                  style="padding:10px 20px; width: 160px; margin-left: auto; margin-right: 0px; margin-bottom: 10px; background-color: var(--purple)">
+                  Change Template</div></a>
+                <div class="sb-details-web-block">
+                  <div class="" style="width: 80%; padding: 5% 20px; margin: auto;">
+                    <div>
+                      <h2>Details</h2>
+                      <h4 style="margin-bottom: 10px">{{ selectedTem.Title }}</h4>
+                      <h4 style="color: #fff8; margin-top: 10px">{{ selectedTem.Des }}</h4>
+                      <h4>Campaign Includes:</h4>
+                      <div style="display: flex; width: 100%; margin: 10px 0">
+                        <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Custom Brand Colour:</h4>
+                        <input
+                          style="margin-left: auto; width: 40px; background-color: #0000; border-style: solid; border-width: 1px; border-color: white; color: white;"
+                          type="text" name="" value=""
+                          placeholder="#ffffff"
+                          v-model="customColor"
+                          @focus="!customColor ? customColor = '#' : customColor"
+                          >
+                          <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
+                      </div>
+                      <div style="display: flex; width: 100%">
+                        <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Video Posts:</h4>
+                        <div class="" @click="vidNum > 1 ? vidNum-- : vidNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+                        <h4 class="counter-01" style="">
+                          <b>{{ vidNum }}</b>
+                        </h4>
+                        <div class="" @click="vidNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+                      </div>
+                      <div style="display: flex; width: 100%">
+                        <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Image Posts:</h4>
+                        <div class="" @click="imgNum > 0 ? imgNum-- : imgNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+                        <h4 class="counter-01" style="">
+                          <b>{{ imgNum }}</b>
+                        </h4>
+                        <div class="" @click="imgNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+                      </div>
+                      <h6 style="margin-bottom: 10px">Total Cost</h6>
+                      <h2 style="margin-top: 10px" v-bind:style="{ color: valStyleCol }">{{ currencySym }}{{ calcVal }} {{currency}}</h2>
+                    </div>
+                    <div class="" style="display: flex; margin: 40px 0px">
+                      <input
+                        style="width: 70%;"
+                        v-model="emailAdd"
+                        type="text" name="fname" placeholder="Email Address..."
+                        v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+                      <div
+                        style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
+                        @click="validEmail()"
+                        class="Top-Btn"
+                        >
+                        Submit</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+      </div>
+      </transition>
+      <transition name="fade">
+      <div
+        v-if="!sent"
+        v-show="!loading"
+        style="width: 100%; height:100%; min-height: 100vh; background-color: #f9f9f9; color: var(--dark);">
+        <div class="how-it-works" id="how" style="">
+          <h1>How it works<span>.</span></h1>
+          <h4>Our process can be broken down into <b>four simple steps</b>:</h4>
+          <div style="display: flex;">
+            <div class="process-panel" style="width: 400px; border-style: solid; border-width: 1px;">
+              <div class="stage-panel" v-for="(stage, index) in stages" @mouseover="currentStage = stage" style="">
+                  <h6 style="color: var(--dark); margin: 10px 0;">
+                    Step 0{{ index }}
+                  </h6>
+                  <h2>{{ stage.Title }}</h2>
+              </div>
+            </div>
+            <div style="width: 300px; margin: 40px auto; text-align: center;">
+              <div style="">
+              <img :src="currentStage.Img" width= "300px"/></div>
+              <h3>{{ currentStage.Title }}</h3>
+              <p>{{ currentStage.Des }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </transition>
+
+      <transition name="fade">
+      <div class="success-page" v-if="sent" v-show="!loading" style="width: 100%; min-height: 100vh; background-color: var(--dark); display: flex;">
+        <div style="width: 500px; margin: auto; text-align: center;">
+          <h2>Thanks for submitting you order!</h2>
+          <p>You will shortly receive a confirmation email.</p>
+          <p>Order Ref: <b>{{ orderData.orderNo[0] }}</b></p>
+        </div>
+      </div>
+      </transition>
+
+      <transition name="fade">
+        <div class="sb-details-mob"
+        v-if="selected"
+        style="box-shadow: 0px -10px 10px #0002"
+        v-bind:style="{height: mobTabHeight +'vh'}"
+        @click="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight= 50"
+        >
+          <div style="padding: 10px 50px">
+            <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
+            <div class=""><p style="display: inline">Total Cost:</p><h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3><p style="display: inline"> {{currency}}</p></div>
+          </div>
+          <div class="" style="display: flex; margin: 40px 0px">
+            <input
+              style="width: 70%;"
+              v-model="emailAdd"
+              type="text" name="fname" placeholder="Email Address..."
+              v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+            <div
+              style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
+              @click="validEmail()"
+              class="Top-Btn"
+              >Submit
+            </div>
+          </div>
+        </div>
+      </transition>
+      <div class="toastBar" id= "toast" style="position: fixed; background-color: var(--purple); padding: 15px 25px; color: white; text-align: center; margin: auto; z-index: 100; left: 30px; box-shadow: 0px 0px 20px #0005; opacity: 0; bottom: 0; border-radius: 3px">{{ snackText }}
+      </div>
+
+      <div v-if="!loading" class="Footer">
+        <p style="text-align: center">&copy;2019:<a href="https://www.studiozafari.com"><b>Studio Zafari</b></a></p>
+      </div>
+
+    </div>
+<!-- End of Vue App -->
+
+<!-- The core Firebase JS SDK-->
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAtFWPFnFvp4uBYB1te-KF1qBUGOk_bvrQ",
+        authDomain: "sz-zocial.firebaseapp.com",
+        projectId: "sz-zocial",
+        appId: "1:284175179333:web:372a0ceb0c96e943"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+<!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/lottie.js"></script>
+<!-- scripts -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

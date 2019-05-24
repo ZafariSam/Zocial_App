@@ -1,0 +1,199 @@
+:root{
+  --dark: #25003d;
+  --green: #00ecbc;
+  --red: #ff2e64;
+  --purple: #602d8f;
+}
+[v-cloak] > * {
+   display:none;
+ }
+ [v-cloak]::before {
+   content: "";
+ }
+*{
+  font-family: 'Work Sans', sans-serif;
+  transition: all 1s;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+body{
+  background-color: var(--dark, #25003d);
+  margin: 0px;
+  color: white;
+}
+button{
+  cursor: pointer;
+}
+h1{
+  font-size: 2rem;
+  margin: 0px;
+  font-weight: 900;
+}
+h4{
+  font-weight:200;
+}
+h6{
+  color:var(--green);
+  font-weight: 200;
+  letter-spacing:10px;
+  text-transform: uppercase;
+  margin-left: 3px;
+}
+span{
+  color: var(--green);
+}
+input{
+  border-radius: 20px 0px 0px 20px; padding: 10px 20px; background-color: white; font-size: 0.85em; font-weight: 500; border: none;
+}
+input:focus{
+  outline-color: #fff0;
+  outline-style: none;
+  border-style: none;
+}
+a:visited{
+  color:inherit;
+}
+::placeholder {
+}
+.Top-Btn{
+  background-color: var(--red);
+  width: 110px;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  color: white;
+  margin-right: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.5s;
+  border-radius: 2px;
+  font-weight: 700;
+}
+.Top-Btn:hover{
+  background-color: var(--purple);
+}
+.sb-details-web{
+  width: 50%; background-color: var(--dark);
+}
+.sb-details-web-block{
+  background-color: #fff0; width: 100%; border-radius: 0px;
+  border-width: 1px; border-style: solid; border-color: white;
+}
+.sb-details-web-tab{
+  width: 80%; position: sticky; top: 100px; margin: 15vh auto 50px auto; border-radius: 0px;
+}
+.sb-details-web-block:hover{
+  background-color: #fff1;
+}
+.ex-deatils{
+  width: 50%;
+  height: 100%;
+}
+.sb-details-mob{
+  display: none;
+  width: 100%;
+  height: 12vh;
+  position: fixed;
+  background-color: var(--purple);
+  z-index: 2;
+  bottom: 0px;
+}
+.sb-details-mob:hover{
+  height: 13vh;
+}
+.demo-scrn-tab{
+  width: 200px; background-color: #602d8f; position: relative; padding: 10px 20px; box-shadow: 15px 15px 10px #0003;
+  animation-name: slide; animation-iteration-count: infinite;
+}
+#ex-tab-01{
+  animation-duration: 5s;
+}
+#ex-tab-02{
+  animation-duration: 6s;
+}
+.cata-titles{
+  opacity: 0;
+}
+.cata-box:hover .cata-titles{
+  opacity: 1;
+}
+.cata-loop{
+  transform: translateY(0px);
+}
+.cata-loop:hover{
+  transform: translateY(-10px);
+}
+.counter-01{
+  color: #fff8; padding: 10px; margin-left: auto; background-color: var(--green); color:var(--dark); margin: 0; height: 20px; width: 10px
+}
+.tem-intro{
+  width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
+}
+.tem-intro-text{
+  padding: 0px 10% 0px 50%; transform:translateY(-170px);
+}
+.underline{
+  width: 10%;
+}
+.stage-panel{
+  padding: 20px 40px; background-color: #fff;
+}
+.stage-panel:hover{
+  background-color: var(--green);
+}
+.how-works-btn:hover .underline{
+  width: 90%;
+}
+.custom-col-display{
+  background-color: #fff;
+}
+.cata-container{
+  padding: 6% 2% 5% 10%;
+}
+.social-links a img{
+  opacity: 1;
+}
+.social-links a img:hover{
+  opacity: 0.5;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+/* Animation  */
+      @keyframes slide {
+        0% {transform: translate(0, 0); box-shadow: init;}
+        50% {transform: translate(10px, 10px); box-shadow: 5px 5px 10px #0004; }
+        100% {transform: translate(0, 0) box-shadow: init;}
+      }
+      @keyframes size {
+        0% {width: 0px;}
+        50% {width: 200px;}
+        100% {width: 0px}
+      }
+/* Responsive CSS */
+
+      @media (max-width: 800px){
+        .sb-details-web{
+          display: none;
+        }
+        .ex-deatils{
+          width: 100%;
+        }
+        .sb-details-mob{
+          display: block;
+        }
+        .tem-intro-text{
+          padding-left: 20%
+        }
+        .process-panel{
+          display:none;
+        }
+        .cata-container{
+          padding: 10% 2% 5% 5%;
+        }
+        .cata-container p{
+          padding-right: 10%
+        }
+      }

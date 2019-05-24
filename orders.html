@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/png" href="img/64w/Favicon_01.png"/>
+
+    <title>Zocial App | Studio Zafari</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,800" rel="stylesheet">
+    <link href="css/zocial.css" rel="stylesheet">
+
+    <style>
+    input{
+      background-color: #fff0;
+      border-color: #fff2;
+      border-style: solid;
+      border-width: 1px;
+      color: white;
+    }
+    input:focus{
+      border-color: var(--green);
+      border-style: solid;
+      border-width: 1px;
+    }
+    .details-txt {
+      margin: 20px 0;
+    }
+    .details-txt h3{
+      margin: 0;
+    }
+    .details-txt h4{
+      margin: 0;
+    }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="app">
+      <div v-if="loading" id="loader" class='loader' style="width: 100%; max-height: 100vh;">
+        <div style="width:50px; height: 50px; margin: auto;"><img width="50px" height="50px" style="margin: 45vh auto;" src="assets/Loader_01.gif"/>
+        </div>
+      </div>
+      <div class="nav-bar" style="width: 100%; position: fixed; z-index: 100; background-color: var(--dark); border-width: 1px; border-bottom-style: solid; border-color: var(--purple); top: 0px;">
+        <div style="padding: 20px 10%; display: flex;">
+          <a href="/"><img src="img/svg/Zafari_Icon_Color.svg" alt="Zaf Logo White" width="40px" height= "40px"></a>
+          <div style="margin-left: auto; display: flex;">
+            <a href="/orders.html"><div style="padding: 10px;">My Orders</div></a>
+            <div class="social-links" style="padding: 12px">
+              <a href="https://twitter.com/StudioZafari" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/Twitter_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+              <a href="https://www.youtube.com/channel/UCwbWyaVhXMCslLqtx36GpGw?view_as=subscriber" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/YT_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+              <a href="https://www.instagram.com/studio_zafari/" target=”_blank”>
+                <img style="margin: 0 10px" src="img/svg/Insta_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-cloak>
+        <transition name="fade">
+        <div v-if="!fetchedData" v-show="!loading">
+          <div style="width: 50%; padding: 50px 50px; margin: 120px auto; border-style: solid; border-width: 1px; border-color: var(--purple);  position: relative; top: 80px;">
+            <h1 style="font-size: 1.5em; margin: 10px 0;">Get you order details:</h1>
+            <h6 style="margin-bottom: 10px;">Email</h6>
+            <input v-model="emailInput" style="border-radius: 100px; width: 100%; box-sizing: border-box" autocomplete="off" type="text" name="email" value="" placeholder="mail@mail.com" v-bind:style="{borderColor: emailClass[0]}">
+            <h6 style="margin-bottom: 10px;">Order Ref</h6>
+            <input v-model="orderInput" style="border-radius: 100px; width: 100%; box-sizing: border-box" autocomplete="off" type="text" name="email" value="" placeholder="Order Ref." v-bind:style="{borderColor: emailClass[0]}">
+            <div style="width: 120px">
+            <div @click="getProjectData(orderInput)" style="margin-top: 30px; padding: 10px 10px; background-color: var(--red); text-align: center; border-radius: 100px; cursor: pointer;">Submit</div>
+            </div>
+          </div>
+        </div>
+        <div v-else v-show="!loading" class="" style="position: relative; top: 100px; padding: 20px 10%;">
+          <div style="cursor: pointer; display: inline-flex; margin: 10px 0;" @click="deleteCookie('OrderRef', 'orders')">
+            <img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 0px 0px 10px; transform: rotate(180deg);">
+            <h5 style="margin: 0;">Change Order</h5>
+          </div>
+          <div style=""><h1>Overview</h1></div>
+          <div class="order-container"style="display: flex; flex-wrap: wrap; margin-top: 40px">
+            <div style="padding: 20px 40px; margin-right: auto;">
+              <div class="details-txt">
+                <h3>Email</h3>
+                <h4 style="">{{ fetchedData.email }}</h4>
+              </div>
+              <div class="details-txt">
+                <h3>Reference</h3>
+                <h4>{{ currentOrder }}</h4>
+              </div>
+              <div class="details-txt">
+                <h3>Date Ordered</h3>
+                <h4>{{ dateCalc }}</h4>
+              </div>
+            </div>
+            <div style="padding: 20px 40px; width: 50%; border-style: solid; border-width: 1px; border-radius: 5px; border-color: var(--purple);">
+              <h3>Project Details</h3>
+              <h4 style="text-transform: capitalize;">Status: <b>{{ fetchedData.status }}</b></h4>
+              <h4 style="">Base Design: <b>{{ fetchedData.templateTitle }}</b></h4>
+              <h4 style="">Color: <b>{{ fetchedData.colour }}</b></h4>
+              <h4 style="">Number of Videos: <b>{{ fetchedData.nVid }}</b></h4>
+              <h4 style="">Number of Images: <b>{{ fetchedData.nImg }}</b></h4>
+              <h4 style="">Expected Delivery Date: <b>{{ deliveryDate }}</b></h4>
+              <div>
+                <h4 style="margin: 0">Total Cost</h4>
+                <h3 style="margin: 0 0 10px">{{ fetchedData.total }} {{ fetchedData.currency }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        </transition>
+      </div>
+
+
+    </div>
+
+    <!-- The core Firebase JS SDK-->
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyAtFWPFnFvp4uBYB1te-KF1qBUGOk_bvrQ",
+            authDomain: "sz-zocial.firebaseapp.com",
+            projectId: "sz-zocial",
+            appId: "1:284175179333:web:372a0ceb0c96e943"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          const db = firebase.firestore();
+        </script>
+    <!-- vuejs -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- scripts -->
+        <script src="js/app.js"></script>
+
+  </body>
+</html>
