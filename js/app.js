@@ -213,7 +213,7 @@ var vm = new Vue({
         .then(function(docRef) {
             self.orderData.orderNo =[];
             self.orderData.orderNo.push(docRef.id);
-            self.setCookie('OrderRef', self.orderData.orderNo[0], 5, 'orders');
+            self.setCookie('OrderRef', self.orderData.orderNo[0], 5, '/orders.html');
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
@@ -278,7 +278,7 @@ var vm = new Vue({
               this.fetchedEmail = null
             };
         if(this.fetchedData){
-          this.setCookie('OrderRef', this.orderInput, 5, 'orders');
+          this.setCookie('OrderRef', this.orderInput, 5, '/orders.html');
           this.emailInput = null;
           this.currentOrder = this.orderInput;
           this.orderInput = "";
@@ -310,7 +310,8 @@ var vm = new Vue({
         var d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + path + ".html";
+
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=" + path;
       },
 
       getCookie: function (cname) {
@@ -346,6 +347,25 @@ var vm = new Vue({
           docID.style.bottom = "0px";
         }, timeout);
       },
+
+      currencyGet: function(){
+        fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
+         .then(
+           function(response) {
+             if (response.status !== 200) {
+               console.log('Looks like there was a problem. Status Code: ' +
+                 response.status);
+               return;
+             }
+             response.json().then(function(data) {
+               return self.currencyData = data;
+             });
+           }
+         )
+         .catch(function(err) {
+           console.log('Fetch Error :-S', err);
+         });
+      }
 
   }, //End of Methods
 
@@ -399,6 +419,7 @@ var vm = new Vue({
       this.valStyleCol = "#00ecbc";
       setTimeout(function(){ self.valStyleCol = 'white'; }, 1000);
     },
+
     windowWidth: function(){
       if (this.windowWidth <= 600){
         this.catalogueLimit[1] = 4;
@@ -407,6 +428,7 @@ var vm = new Vue({
           this.catalogueLimit[1] = 6;
         }
     },
+
     emailAdd: function(){
       let eml = this.emailAdd;
       let emlAlt = eml.toLowerCase();
@@ -421,24 +443,13 @@ var vm = new Vue({
       let ob = Object.keys(this.temCata);
       this.cataLength = ob.length;
 
-      //Currency Get
-      // fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
-      //   .then(
-      //     function(response) {
-      //       if (response.status !== 200) {
-      //         console.log('Looks like there was a problem. Status Code: ' +
-      //           response.status);
-      //         return;
-      //       }
-      //       response.json().then(function(data) {
-      //         return self.currencyData = data;
-      //       });
-      //     }
-      //   )
-      //   .catch(function(err) {
-      //     console.log('Fetch Error :-S', err);
-      //   });
-      // if()
+      let pV = this.getCookie('pageView');
+        if (pV == "") {
+          this.setCookie('pageView', 1, 3, '/');
+        } else {
+          pV ++;
+          // this.setCookie('pageView', pV, 3, '/');
+        }
 
       var oR = this.getCookie("OrderRef");
         if (oR != "") {
@@ -451,8 +462,6 @@ var vm = new Vue({
   mounted() {
     this.$nextTick(function() {
       window.addEventListener('resize', this.getWindowWidth);
-      // //Init
-      // this.getWindowWidth()
     })
   }, //End of Mounted Hook
 
