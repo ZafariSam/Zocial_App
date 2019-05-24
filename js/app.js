@@ -467,7 +467,7 @@ var vm = new Vue({
   }, //End of Mounted Hook
 
   beforeDestroy(){
-    
+
   }
 
 }) //End of Vue Component
