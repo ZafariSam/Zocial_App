@@ -434,6 +434,7 @@ var vm = new Vue({
       let emlAlt = eml.toLowerCase();
       this.emailAdd = emlAlt;
     }
+    
   }, //End of Watcher
 
   created() {
