@@ -1,3 +1,26 @@
+Vue.component('nav-bar', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template:`<div class="nav-bar">
+          <div style="padding: 20px 10%; display: flex;">
+            <a href="/"><img src="img/svg/Zafari_Icon_Color.svg" alt="Zaf Logo White" width="40px" height= "40px"></a>
+            <div style="margin-left: auto; display: flex;">
+              <a href="/orders.html"><div style="padding: 10px;">My Orders</div></a>
+              <div class ="social-links" style="padding: 12px">
+                <a href="https://twitter.com/StudioZafari" target=”_blank”>
+                  <img style="margin: 0 10px" src="img/svg/Twitter_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+                <a href="https://www.youtube.com/channel/UCwbWyaVhXMCslLqtx36GpGw?view_as=subscriber" target=”_blank”>
+                  <img style="margin: 0 10px" src="img/svg/YT_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+                <a href="https://www.instagram.com/studio_zafari/" target=”_blank”>
+                  <img style="margin: 0 10px" src="img/svg/Insta_Icon.svg" alt="Zaf Logo White" width="15px" height= "15px"></a>
+              </div>
+            </div>
+          </div>
+        </div>`
+})
 
 var vm = new Vue({
   el: '#app',

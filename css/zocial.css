@@ -55,6 +55,16 @@ a:visited{
 }
 ::placeholder {
 }
+.nav-bar{
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: var(--dark);
+  border-width: 1px;
+  border-bottom-style: solid;
+  border-color: var(--purple);
+  top: 0px;
+}
 .Top-Btn{
   background-color: var(--red);
   width: 110px;
