@@ -238,6 +238,7 @@
         <div style="width:50px; height: 50px; margin: auto;"><img width="50px" height="50px" style="margin: 45vh auto;" src="assets/Loader_01.gif"/>
         </div>
       </div>
+
       <transition name="fade">
         <div title="Header"
           v-if="!sent"
@@ -253,9 +254,8 @@
         </div>
       </transition>
 
-      <transition name="fade">
-        <div
-          id="catalogue"
+      <transition name="fade" >
+        <div id="catalogue"
           style="width: 100%; height: 100%; background-color: var(--dark); min-height: 100vh; overflow: hidden;"
           v-if="!sent"
           v-show="!loading"
@@ -314,6 +314,7 @@
 
       <!-- Selection Div -->
       <span id="selection"></span>
+
       <transition name="fade">
         <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected">
           <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden">
@@ -415,53 +416,56 @@
               </div>
             </div>
           </section>
-      </div>
-      </transition>
-      <transition name="fade">
-      <div
-        v-if="!sent"
-        v-show="!loading"
-        style="width: 100%; height:100%; min-height: 100vh; background-color: #f9f9f9; color: var(--dark);">
-        <div class="how-it-works" id="how" style="">
-          <h1>How it works<span>.</span></h1>
-          <h4>Our process can be broken down into <b>four simple steps</b>:</h4>
-          <div style="display: flex;">
-            <div class="process-panel" style="width: 400px; border-style: solid; border-width: 1px;">
-              <div class="stage-panel" v-for="(stage, index) in stages" @mouseover="currentStage = stage" style="">
-                  <h6 style="color: var(--dark); margin: 10px 0;">
-                    Step 0{{ index }}
-                  </h6>
-                  <h2>{{ stage.Title }}</h2>
-              </div>
-            </div>
-            <div style="width: 300px; margin: 40px auto; text-align: center;">
-              <div style="">
-              <img :src="currentStage.Img" width= "300px"/></div>
-              <h3>{{ currentStage.Title }}</h3>
-              <p>{{ currentStage.Des }}</p>
-            </div>
-          </div>
         </div>
-      </div>
       </transition>
 
       <transition name="fade">
-      <div class="success-page" v-if="sent" v-show="!loading" style="width: 100%; min-height: 100vh; background-color: var(--dark); display: flex;">
-        <div style="width: 500px; margin: auto; text-align: center;">
-          <h2>Thanks for submitting you order!</h2>
-          <p>You will shortly receive a confirmation email.</p>
-          <p>Order Ref: <b>{{ orderData.orderNo[0] }}</b></p>
+        <div class="how"
+          v-if="!sent"
+          v-show="!loading"
+          style="width: 100%; height:100%; min-height: 100vh; background-color: #f9f9f9; color: var(--dark);">
+          <div class="how-it-works" id="how" style="">
+            <h1>How it works<span>.</span></h1>
+            <h4>Our process can be broken down into <b>four simple steps</b>:</h4>
+            <div style="display: flex;">
+              <div class="process-panel" style="width: 400px; border-style: solid; border-width: 1px;">
+                <div class="stage-panel" v-for="(stage, index) in stages" @mouseover="currentStage = stage" style="">
+                    <h6 style="color: var(--dark); margin: 10px 0;">
+                      Step 0{{ index }}
+                    </h6>
+                    <h2>{{ stage.Title }}</h2>
+                </div>
+              </div>
+              <div style="width: 300px; margin: 40px auto; text-align: center;">
+                <div style="">
+                <img :src="currentStage.Img" width= "300px"/></div>
+                <h3>{{ currentStage.Title }}</h3>
+                <p>{{ currentStage.Des }}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </transition>
+
+      <transition name="fade">
+        <div class="success-page"
+          v-if="sent" v-show="!loading"
+          style="width: 100%; min-height: 100vh; background-color: var(--dark); display: flex;">
+          <div style="width: 500px; margin: auto; text-align: center;">
+            <h2>Thanks for submitting you order!</h2>
+            <p>You will shortly receive a confirmation email.</p>
+            <p>Order Ref: <b>{{ orderData.orderNo[0] }}</b></p>
+          </div>
+        </div>
       </transition>
 
       <transition name="fade">
         <div class="sb-details-mob"
-        v-if="selected"
-        style="box-shadow: 0px -10px 10px #0002"
-        v-bind:style="{height: mobTabHeight +'vh'}"
-        @click="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight= 50"
-        >
+          v-if="selected"
+          style="box-shadow: 0px -10px 10px #0002"
+          v-bind:style="{height: mobTabHeight +'vh'}"
+          @click="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight= 50"
+          >
           <div style="padding: 10px 50px">
             <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
             <div class=""><p style="display: inline">Total Cost:</p><h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3><p style="display: inline"> {{currency}}</p></div>
@@ -481,7 +485,10 @@
           </div>
         </div>
       </transition>
-      <div class="toastBar" id="toast" style="position: fixed; background-color: var(--purple); padding: 15px 25px; color: white; text-align: center; margin: auto; z-index: 100; left: 30px; box-shadow: 0px 0px 20px #0005; opacity: 0; bottom: 0; border-radius: 3px">{{ snackDefault.text }}
+
+      <div class="toastBar" id="toast"
+        style="position: fixed; background-color: var(--purple); padding: 15px 25px; color: white; text-align: center; margin: auto; z-index: 100; left: 30px; box-shadow: 0px 0px 20px #0005; opacity: 0; bottom: 0; border-radius: 3px">
+        {{ snackDefault.text }}
       </div>
 
       <div v-if="!loading" class="Footer">
