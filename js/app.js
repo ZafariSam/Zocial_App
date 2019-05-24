@@ -182,7 +182,7 @@ var vm = new Vue({
     },
     windowWidth: window.innerWidth,
     userLocation: { country: null },
-    snackText: "",
+    snackDefault: { text: "placeholder text"},
 
     //OrderData
     emailInput: null,
@@ -266,13 +266,15 @@ var vm = new Vue({
 
       getProjectData: async function(ordRef){
         if(this.emailInput && this.orderInput.length > 19){
-        await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() );
+          this.loading= true;
+          await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() );
         if (this.fetchedEmail.email == this.emailInput)
             {
              this.loaderCall(1000);
              this.fetchedData = this.fetchedEmail;
             }
             else {
+              this.loading = false;
               this.fetchedEmail = null
             };
         if(this.fetchedData){
@@ -334,7 +336,7 @@ var vm = new Vue({
 
 //Note: Call like this: snackCall('toast', 3000, 'Success! Your toast bar is working', initial)
       snackCall: function(id, timeout, textInp, color){
-        this.snackText = textInp;
+        this.snackDefault.text = textInp;
         var docID = document.getElementById(id);
         docID.style.backgroundColor = color;
         docID.style.opacity = 1;
