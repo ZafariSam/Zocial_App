@@ -4,7 +4,8 @@ Vue.component('nav-bar', {
       count: 0
     }
   },
-  template:`<div class="nav-bar">
+  template:`
+        <div class="nav-bar">
           <div style="padding: 20px 10%; display: flex;">
             <a href="/"><img src="img/svg/Zafari_Icon_Color.svg" alt="Zaf Logo White" width="40px" height= "40px"></a>
             <div style="margin-left: auto; display: flex;">
