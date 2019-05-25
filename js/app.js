@@ -30,6 +30,7 @@ var vm = new Vue({
     loading: true,
     selected: false,
     sent: false,
+    preview: false,
 
     //Index Data
     vidNum: 4,
@@ -149,7 +150,7 @@ var vm = new Vue({
       Imgs: ["../img/Stock/kenrick-mills-1567595-unsplash.jpg",
         ],
     },
-    bkgPlace: "../img/Stock/kenrick-mills-1567595-unsplash.jpg",
+    bkgPlace: "../img/Thumbnails/109_Thumb.jpg",
     stages:{
       01:{
         Title: "Select a design",

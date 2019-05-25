@@ -147,6 +147,12 @@
       .cata-loop:hover{
         transform: translateY(-10px);
       }
+      .cata-loop:hover .img-load{
+        opacity: 1;
+      }
+      .cata-loop:hover .gif-load{
+        opacity: 1;
+      }
       .counter-01{
         color: #fff8; padding: 10px; margin-left: auto; background-color: var(--green); color:var(--dark); margin: 0; height: 20px; width: 10px
       }
@@ -184,7 +190,12 @@
       .how-it-works{
         padding: 10% 5% 10% 10%
       }
-
+      .img-load{
+        opacity: 0;
+      }
+      .gif-load{
+        opacity: 0;
+      }
       .fade-enter-active, .fade-leave-active {
         transition: opacity 0.5s;
       }
@@ -289,19 +300,25 @@
                   v-bind:id="cata.Ref"
                   style="margin: 20px; background-color: white; background-size: cover; border-radius: 10px; background-position: center;"
                   @click="selected = true, selectedTem = cata"
+                  @mouseover="preview= true"
+                  @mouseout="preview= false"
                   v-bind:style="{ backgroundImage: 'url(' + cata.Imgs[0] + ')' }"
                   >
                   <a href='#selection'>
-                    <div class="cata-box"
-                      style=" width: 400px; height: 300px;"
-                      >
-                      <div class="cata-titles"
-                        style="padding: 23% 40px 0; text-align: center;">
-                          <h3 style="color: white;">
-                            {{ cata.Title }}
-                          </h3>
-                          <p style="color: white;">{{ cata.Tagline }}</p>
-                          <p style="color: white;">Length: <b>{{ cata.Length }} Seconds</b></p>
+                    <div class="gif-load" v-bind:style="{ backgroundImage: 'url(' + bkgPlace + ')' }">
+                      <div class='img-load' style= "width:50px; height: 50px; position: fixed; top: 40%; left: 43%; z-index:-1;"><img width="50px" height="50px" style="" src="assets/Loader_01.gif"/>
+                      </div>
+                      <div class="cata-box"
+                        style=" width: 400px; height: 300px;"
+                        >
+                        <div class="cata-titles"
+                          style="padding: 23% 40px 0; text-align: center;">
+                            <h3 style="color: white;">
+                              {{ cata.Title }}
+                            </h3>
+                            <p style="color: white;">{{ cata.Tagline }}</p>
+                            <p style="color: white;">Length: <b>{{ cata.Length }} Seconds</b></p>
+                        </div>
                       </div>
                     </div>
                   </a>
