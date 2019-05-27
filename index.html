@@ -197,6 +197,15 @@
       .gif-load{
         opacity: 0;
       }
+      .features-block{
+        margin: 50px 0;
+      }
+      .features-block h3{
+        margin: 0;
+      }
+      .features-block p{
+        margin: 0;
+      }
       .fade-enter-active, .fade-leave-active {
         transition: opacity 0.5s;
       }
@@ -265,6 +274,34 @@
             <h3 style="font-weight: 200;">Build engaging social media posts with professional designers</h3>
 
             <div style= "width:200px; margin: auto;"><a href="#catalogue"><div class="Top-Btn" style="width: 100%; padding: 10px 0">Get Started</div></a></div>
+          </div>
+        </div>
+      </transition>
+
+      <transition name="fade">
+        <div title="Why Zafari" v-if="!sent"
+        v-show="!loading" style="margin-top: 80px;">
+          <div style="padding: 20px 100px; margin: 10px 15%; background-color: #f9f9f9; color: var(--dark);border-radius: 5px;">
+            <div class="features-block">
+              <h3>Customizable</h3>
+              <p>All our templates can be adapted to meet your specific requirements.</p>
+            </div>
+            <div class="features-block">
+              <h3>Affordable</h3>
+              <p>All our templates can be adapted to meet your specific requirements.</p>
+            </div>
+            <div class="features-block">
+              <h3>Flexible</h3>
+              <p>All our templates can be adapted to meet your specific requirements.</p>
+            </div>
+            <div class="features-block">
+              <h3>High Quality</h3>
+              <p>All our templates can be adapted to meet your specific requirements.</p>
+            </div>
+            <div class="features-block">
+              <h3>Fast</h3>
+              <p>All our templates can be adapted to meet your specific requirements.</p>
+            </div>
           </div>
         </div>
       </transition>
