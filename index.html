@@ -160,8 +160,9 @@
         width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
       }
       .tem-intro-text{
-        text-align: center;
-        padding: 6% 10% 0px 10%;
+        padding: 100px 5% 0px 10%;
+        width: 50%;
+        box-sizing: border-box;
       }
       .underline{
         width: 10%;
@@ -244,7 +245,7 @@
   </head>
   <body>
     <noscript>
-      <p>We're sorry but this site requires JavaScript to be enabled. <strong>Please enable it to continue.</strong></p>
+      <p>We're sorry but this site requires JavaScript to be enabled. <strong>Please enable to continue.</strong></p>
     </noscript>
     <div id="app" v-cloak>
       <nav-bar v-show="!loading"></nav-bar>
@@ -257,8 +258,9 @@
         <div title="Header"
           v-if="!sent"
           v-show="!loading"
+          style="top: 85px; position: relative;"
           >
-          <div class="" style="padding: 180px 10% 100px; text-align: center;">
+          <div class="" style="padding: 100px 10% 100px; text-align: center;">
             <h1 style="font-size: 3em; font-weight: 100;"><b>Create</b> Social Content<h1>
             <h3 style="font-weight: 200;">Build engaging social media posts with professional designers</h3>
 
@@ -324,6 +326,7 @@
                   </a>
                 </div>
               </div>
+              <span id="selection"></span>
               <div @click="addMore()" v-show="cataLength > catalogueLimit[1]" style="width: 100%; margin: 0 20px; cursor: pointer">
                 <b>Show More</b><img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 5px; transform: rotate(90deg);">
               </div>
@@ -332,14 +335,13 @@
       </transition>
 
       <!-- Selection Div -->
-      <span id="selection"></span>
 
       <transition name="fade">
         <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected">
-          <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden">
+          <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden; display: flex;">
 
-            <div class="" style="width: 100%; height: 100%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
-              <div class="" style="width: 100%; height: 500px; background-color: #0005">
+            <div class="" style="width: 50%; height: 100%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+              <div class="" style="height: 500px; background-color: #0005">
                 <div style="padding-top: 220px">
                   <div style="width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px;">
                     Play Video
@@ -352,11 +354,9 @@
               <h6>Template Title</h6>
               <h1>{{ selectedTem.Title }}<span>.</span></h1>
               <h2>{{ selectedTem.Tagline }}</h2>
+              <a href="#customize"><div class="Top-Btn" style="width: 200px;">Customize Campaign</div></a>
             </div>
 
-            <div style="padding: 50px 10%">
-              <!-- <a href="#customize"><div class="Top-Btn" style="width: 200px;">Customize Campaign</div></a> -->
-            </div>
           </div>
           <section id="customize" style="width: 100%; display: flex">
             <div class="ex-deatils" style="">
