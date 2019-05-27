@@ -337,7 +337,7 @@
       <!-- Selection Div -->
 
       <transition name="fade">
-        <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected">
+        <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected" style="margin: 0 50px;">
           <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden; display: flex;">
 
             <div class="" style="width: 50%; height: 100%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
