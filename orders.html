@@ -44,11 +44,14 @@
     <div id="app">
       <nav-bar></nav-bar>
       <div v-if="loading" id="loader" class='loader' style="width: 100%; max-height: 100vh;">
-        <div style="width:50px; height: 50px; margin: auto;"><img width="50px" height="50px" style="margin: 45vh auto;" src="assets/Loader_01.gif"/>
+        <div
+          style="width:50px; height: 50px; margin: auto;"><img width="50px" height="50px" style="margin: 45vh auto;" src="assets/Loader_01.gif"/>
         </div>
       </div>
+
       <div v-cloak>
         <transition name="fade">
+
         <div v-if="!fetchedData.email" v-show="!loading">
           <div style="width: 50%; padding: 50px 50px; margin: 120px auto; border-style: solid; border-width: 1px; border-color: var(--purple);  position: relative; top: 80px;">
             <h1 style="font-size: 1.5em; margin: 10px 0;">Get you order details:</h1>
@@ -57,64 +60,68 @@
             <h6 style="margin-bottom: 10px;">Order Ref</h6>
             <input v-model="orderInput" style="border-radius: 100px; width: 100%; box-sizing: border-box" autocomplete="off" type="text" name="email" value="" placeholder="Order Ref." v-bind:style="{borderColor: emailClass[0]}">
             <div style="width: 120px">
-            <div @click="getProjectData(orderInput)" style="margin-top: 30px; padding: 10px 10px; background-color: var(--red); text-align: center; border-radius: 100px; cursor: pointer;">Submit</div>
+              <div @click="getProjectData(orderInput)"
+                style="margin-top: 30px; padding: 10px 10px; background-color: var(--red); text-align: center; border-radius: 100px; cursor: pointer;">Submit
+              </div>
             </div>
           </div>
         </div>
-        <div
-          v-if="fetchedData.email"
-          v-show="!loading"
+
+        <div v-if="fetchedData.email" v-show="!loading"
           class=""
           style="position: relative; top: 85px;">
-          <div style="height: 50%; padding: 20px 10%;">
-            <div style="cursor: pointer; display: inline-flex; margin: 10px 0;" @click="deleteCookie('OrderRef', 'orders')">
-              <img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 0px 0px 10px; transform: rotate(180deg);">
-              <h5 style="margin: 0;">Change Order</h5>
+            <div style="height: 50%; padding: 20px 10%;">
+              <div style="cursor: pointer; display: inline-flex; margin: 10px 0;" @click="deleteCookie('OrderRef', 'orders')">
+                <img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 0px 0px 10px; transform: rotate(180deg);">
+                <h5 style="margin: 0;">Change Order</h5>
+              </div>
+              <div style=""><h1>Overview</h1></div>
+              <div style="margin: 80px 0; text-align: center;">
+                <h6 style="margin: 5px">Status</h6>
+                <h1 style="text-transform: capitalize;">{{ orderStatus }}</h1>
+              </div>
             </div>
-            <div style=""><h1>Overview</h1></div>
-            <div style="margin: 80px 0; text-align: center;">
-              <h6 style="margin: 5px">Status</h6>
-              <h1 style="text-transform: capitalize;">{{ orderStatus }}</h1>
-            </div>
-            <div class="order-container"style="margin-top: 40px">
-              <div style="padding: 20px 40px; margin-right: auto; display: flex; background-color: var(--purple);">
-                <div class="details-txt">
-                  <h3>Email</h3>
-                  <h4 style="">{{ fetchedData.email }}</h4>
+            <div class="">
+              <div class="order-container"style="margin-top: 40px">
+                <div style="padding: 20px 40px; margin-right: auto; background-color: var(--purple); width: 300px;">
+                  <div class="details-txt">
+                    <h3>Email</h3>
+                    <h4 style="">{{ fetchedData.email }}</h4>
+                  </div>
+                  <div class="details-txt">
+                    <h3>Reference</h3>
+                    <h4>{{ currentOrder }}</h4>
+                  </div>
+                  <div class="details-txt">
+                    <h3>Date Ordered</h3>
+                    <h4>{{ dateCalc }}</h4>
+                  </div>
                 </div>
-                <div class="details-txt">
-                  <h3>Reference</h3>
-                  <h4>{{ currentOrder }}</h4>
-                </div>
-                <div class="details-txt">
-                  <h3>Date Ordered</h3>
-                  <h4>{{ dateCalc }}</h4>
+              </div>
+              <div style="background-color: white;">
+                <div
+                  style="padding: 20px 40px; width: 50%; margin: 0px auto; color: black;">
+                  <h3>Project Details</h3>
+                  <h4 style="">Base Design: <b>{{ fetchedData.templateTitle }}</b></h4>
+                  <h4 style="">Color: <b>{{ fetchedData.colour }}</b></h4>
+                  <h4 style="">Number of Videos: <b>{{ fetchedData.nVid }}</b></h4>
+                  <h4 style="">Number of Images: <b>{{ fetchedData.nImg }}</b></h4>
+                  <h4 style="">Expected Delivery Date: <b>{{ deliveryDate }}</b></h4>
+                  <div>
+                    <h4 style="margin: 0">Total Cost</h4>
+                    <h3 style="margin: 0 0 10px">{{ fetchedData.total }} {{ fetchedData.currency }}</h3>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div style="background-color: white;">
-            <div
-              style="padding: 20px 40px; width: 50%; margin: 0px auto; color: black;">
-              <h3>Project Details</h3>
-              <h4 style="">Base Design: <b>{{ fetchedData.templateTitle }}</b></h4>
-              <h4 style="">Color: <b>{{ fetchedData.colour }}</b></h4>
-              <h4 style="">Number of Videos: <b>{{ fetchedData.nVid }}</b></h4>
-              <h4 style="">Number of Images: <b>{{ fetchedData.nImg }}</b></h4>
-              <h4 style="">Expected Delivery Date: <b>{{ deliveryDate }}</b></h4>
-              <div>
-                <h4 style="margin: 0">Total Cost</h4>
-                <h3 style="margin: 0 0 10px">{{ fetchedData.total }} {{ fetchedData.currency }}</h3>
-              </div>
-            </div>
-          </div>
-          </div>
         </div>
+        
         </transition>
       </div>
-      <div class="toastBar" id="toast" style="position: fixed; background-color: var(--purple); padding: 15px 25px; color: white; text-align: center; margin: auto; z-index: 100; left: 30px; box-shadow: 0px 0px 20px #0005; opacity: 0; bottom: 0; border-radius: 3px">{{ snackDefault.text }}
+      <div class="toastBar" id="toast"
+        style="position: fixed; background-color: var(--purple); padding: 15px 25px; color: white; text-align: center; margin: auto; z-index: 100; left: 30px; box-shadow: 0px 0px 20px #0005; opacity: 0; bottom: 0; border-radius: 3px">{{ snackDefault.text }}
       </div>
-      <div style=""></div>
+
     </div>
 
     <!-- The core Firebase JS SDK-->
