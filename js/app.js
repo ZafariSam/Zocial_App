@@ -204,7 +204,7 @@ var vm = new Vue({
           templateRef: this.selectedTem.Ref,
           nVid: this.vidNum,
           nImg: this.imgNum,
-          colour: this.customColor,
+          colour: this.customColorCheck,
           total: this.calcVal,
           dateAdded: new Date(),
           readAccess: [],
@@ -414,6 +414,12 @@ var vm = new Vue({
       } else {return "Awaiting Confirmation"}
     },
 
+    customColorCheck: function(){
+      if(!this.customColor){
+        return "Not Provided"
+      } else {return this.customColor}
+    }
+
   },//End of Computed
 
   watch:{
@@ -452,7 +458,7 @@ var vm = new Vue({
           this.setCookie('pageView', 1, 3, '/');
         } else {
           pV ++;
-          // this.setCookie('pageView', pV, 3, '/');
+          this.setCookie('pageView', pV, 3, '/');
         }
 
       var oR = this.getCookie("OrderRef");

@@ -36,6 +36,15 @@
       .details-txt h4{
         margin: 0;
       }
+      .detail-sec{
+        display: flex; margin-top: 40px
+      }
+
+      @media (max-width: 800px){
+        .detail-sec{
+          display: grid; margin-top: 40px
+        }
+      }
     </style>
 
   </head>
@@ -81,8 +90,8 @@
                 <h1 style="text-transform: capitalize;">{{ orderStatus }}</h1>
               </div>
             </div>
-            <div class="">
-              <div class="order-container"style="margin-top: 40px">
+            <div class="detail-sec" style="">
+              <div class="order-container"style="">
                 <div style="padding: 20px 40px; margin-right: auto; background-color: var(--purple); width: 300px;">
                   <div class="details-txt">
                     <h3>Email</h3>
@@ -98,9 +107,9 @@
                   </div>
                 </div>
               </div>
-              <div style="background-color: white;">
+              <div style="background-color: white; width: 100%;">
                 <div
-                  style="padding: 20px 40px; width: 50%; margin: 0px auto; color: black;">
+                  style="padding: 20px 40px; width: 50%; margin: 0px 50px; color: black;">
                   <h3>Project Details</h3>
                   <h4 style="">Base Design: <b>{{ fetchedData.templateTitle }}</b></h4>
                   <h4 style="">Color: <b>{{ fetchedData.colour }}</b></h4>
@@ -115,7 +124,7 @@
               </div>
             </div>
         </div>
-        
+
         </transition>
       </div>
       <div class="toastBar" id="toast"

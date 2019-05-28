@@ -435,6 +435,7 @@
                           placeholder="#ffffff"
                           v-model="customColor"
                           @focus="!customColor ? customColor = '#' : customColor"
+                          @blur="customColor == '#' ? customColor = null : customColor"
                           >
                           <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
                       </div>
@@ -523,11 +524,14 @@
           v-if="selected"
           style="box-shadow: 0px -10px 10px #0002"
           v-bind:style="{height: mobTabHeight +'vh'}"
-          @click="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight= 50"
+          @click.stop="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight = null"
           >
           <div style="padding: 10px 50px">
             <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
-            <div class=""><p style="display: inline">Total Cost:</p><h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3><p style="display: inline"> {{currency}}</p></div>
+            <div class="">
+              <p style="display: inline">Total Cost:</p>
+              <h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3>
+              <p style="display: inline"> {{currency}}</p></div>
             <h4 style="color: #fff8; margin-top: 10px">{{ selectedTem.Des }}</h4>
             <h4 style="margin-bottom: 0px;">Campaign Includes:</h4>
           </div>
@@ -574,6 +578,7 @@
               >Submit
             </div>
           </div>
+          <div @click.stop="mobTabHeight = 12" style="text-align: center; cursor: pointer;" ><b>Close</b></div>
         </div>
       </transition>
 
