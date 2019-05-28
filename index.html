@@ -160,7 +160,7 @@
         width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
       }
       .tem-intro-text{
-        padding: 100px 5% 0px 10%;
+        padding: 100px 5% 50px 10%;
         width: 50%;
         box-sizing: border-box;
       }
@@ -525,8 +525,40 @@
           <div style="padding: 10px 50px">
             <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
             <div class=""><p style="display: inline">Total Cost:</p><h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3><p style="display: inline"> {{currency}}</p></div>
+            <h4 style="color: #fff8; margin-top: 10px">{{ selectedTem.Des }}</h4>
+            <h4 style="margin-bottom: 0px;">Campaign Includes:</h4>
           </div>
-          <div class="" style="display: flex; margin: 40px 0px">
+          <div style="padding:0 50px">
+            <div style="display: flex; width: 100%; margin: 10px 0">
+              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Custom Brand Colour:</h4>
+              <input
+                style="margin-left: auto; width: 40px; background-color: #0000; border-style: solid; border-width: 1px; border-color: white; color: white;"
+                type="text" name="" value=""
+                placeholder="#ffffff"
+                v-model="customColor"
+                @focus="!customColor ? customColor = '#' : customColor"
+                >
+                <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
+            </div>
+            <div style="display: flex; width: 100%">
+              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Video Posts:</h4>
+              <div class="" @click="vidNum > 1 ? vidNum-- : vidNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+              <h4 class="counter-01" style="">
+                <b>{{ vidNum }}</b>
+              </h4>
+              <div class="" @click="vidNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+            </div>
+            <div style="display: flex; width: 100%">
+              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Image Posts:</h4>
+              <div class="" @click="imgNum > 0 ? imgNum-- : imgNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+              <h4 class="counter-01" style="">
+                <b>{{ imgNum }}</b>
+              </h4>
+              <div class="" @click="imgNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+            </div>
+          </div>
+
+          <div class="" style="display: flex; margin: 20px 40px">
             <input
               style="width: 70%;"
               v-model="emailAdd"
