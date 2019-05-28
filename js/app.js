@@ -187,9 +187,10 @@ var vm = new Vue({
 
     //OrderData
     emailInput: null,
+    orderStatus:"pending",
     orderInput: "",
     currentOrder:"#123456789123456789",
-    fetchedData: null,
+    fetchedData: {email: null, templateTitle: '', color: '', nVid: 0, nImg: 0, total:'', currency:'', dateAdded:{seconds:0},  },
     fetchedEmail: null,
 
   }, //End of Data
@@ -273,12 +274,13 @@ var vm = new Vue({
             {
              this.loaderCall(1000);
              this.fetchedData = this.fetchedEmail;
+             this.orderStatus = this.fetchedEmail.status;
             }
             else {
               this.loading = false;
               this.fetchedEmail = null
             };
-        if(this.fetchedData){
+        if(this.fetchedData.email){
           this.setCookie('OrderRef', this.orderInput, 5, '/orders.html');
           this.emailInput = null;
           this.currentOrder = this.orderInput;
