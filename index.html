@@ -160,7 +160,7 @@
         width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
       }
       .tem-intro-text{
-        padding: 100px 5% 50px 10%;
+        padding: 80px 5% 80px 10%;
         width: 50%;
         box-sizing: border-box;
       }
@@ -270,8 +270,8 @@
           style="top: 85px; position: relative;"
           >
           <div class="" style="padding: 100px 10% 100px; text-align: center;">
-            <h1 style="font-size: 3em; font-weight: 100;"><b>Create</b> Social Content<h1>
-            <h3 style="font-weight: 200;">Build engaging social media posts with professional designers</h3>
+            <h1 style="font-size: 3em; font-weight: 900;">Grow your social media following<span>.</span><h1>
+            <h3 style="font-weight: 200;">Create engaging social media posts with professional designers</h3>
 
             <div style= "width:200px; margin: auto;"><a href="#catalogue"><div class="Top-Btn" style="width: 100%; padding: 10px 0">Get Started</div></a></div>
           </div>
@@ -375,10 +375,10 @@
 
       <transition name="fade">
         <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected" style="margin: 0 50px;">
-          <div style="width: 100%; height: 100%; background-color: var(--purple); min-height: min-content; overflow:hidden; display: flex;">
+          <div style="width: 100%; height: 100%; min-height: min-content; overflow:hidden; display: flex;">
 
-            <div class="" style="width: 50%; height: 100%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
-              <div class="" style="height: 500px; background-color: #0005">
+            <div class="" style="width: 50%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+              <div class="" style="height: 100%; background-color: #0005">
                 <div style="padding-top: 220px">
                   <div style="width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px;">
                     Play Video
@@ -387,7 +387,7 @@
               </div>
             </div>
 
-            <div class="tem-intro-text" style="">
+            <div class="tem-intro-text" style="background-color: var(--purple);">
               <h6>Template Title</h6>
               <h1>{{ selectedTem.Title }}<span>.</span></h1>
               <h2>{{ selectedTem.Tagline }}</h2>
@@ -395,6 +395,9 @@
             </div>
 
           </div>
+
+          <div style="width:100%; height: 10px; background-color: black; filter: blur(20px);"></div>
+
           <section id="customize" style="width: 100%; display: flex">
             <div class="ex-deatils" style="">
               <div class="" id="example-01" style="height: 90vh; padding: 20% 10%; box-sizing: border-box;">
