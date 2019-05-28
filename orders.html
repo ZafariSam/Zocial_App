@@ -27,7 +27,8 @@
         border-width: 1px;
       }
       .details-txt {
-        margin: 20px 0;
+        margin: 20px 20px;
+
       }
       .details-txt h3{
         margin: 0;
@@ -60,30 +61,42 @@
             </div>
           </div>
         </div>
-        <div v-else v-show="!loading" class="" style="position: relative; top: 100px; padding: 20px 10%;">
-          <div style="cursor: pointer; display: inline-flex; margin: 10px 0;" @click="deleteCookie('OrderRef', 'orders')">
-            <img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 0px 0px 10px; transform: rotate(180deg);">
-            <h5 style="margin: 0;">Change Order</h5>
-          </div>
-          <div style=""><h1>Overview</h1></div>
-          <div class="order-container"style="margin-top: 40px">
-            <div style="padding: 20px 40px; margin-right: auto;">
-              <div class="details-txt">
-                <h3>Email</h3>
-                <h4 style="">{{ fetchedData.email }}</h4>
-              </div>
-              <div class="details-txt">
-                <h3>Reference</h3>
-                <h4>{{ currentOrder }}</h4>
-              </div>
-              <div class="details-txt">
-                <h3>Date Ordered</h3>
-                <h4>{{ dateCalc }}</h4>
+        <div
+          v-else
+          v-show="!loading"
+          class=""
+          style="position: relative; top: 85px;">
+          <div style="height: 50%; padding: 20px 10%;">
+            <div style="cursor: pointer; display: inline-flex; margin: 10px 0;" @click="deleteCookie('OrderRef', 'orders')">
+              <img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 0px 0px 10px; transform: rotate(180deg);">
+              <h5 style="margin: 0;">Change Order</h5>
+            </div>
+            <div style=""><h1>Overview</h1></div>
+            <div style="text-align: center;">
+              <h6>Status</h6>
+              <h1 style="text-transform: capitalize;">{{ fetchedData.status }}</h1>
+            </div>
+            <div class="order-container"style="margin-top: 40px">
+              <div style="padding: 20px 40px; margin-right: auto; display: flex; background-color: var(--purple);">
+                <div class="details-txt">
+                  <h3>Email</h3>
+                  <h4 style="">{{ fetchedData.email }}</h4>
+                </div>
+                <div class="details-txt">
+                  <h3>Reference</h3>
+                  <h4>{{ currentOrder }}</h4>
+                </div>
+                <div class="details-txt">
+                  <h3>Date Ordered</h3>
+                  <h4>{{ dateCalc }}</h4>
+                </div>
               </div>
             </div>
-            <div style="padding: 20px 40px; width: 50%; border-style: solid; border-width: 1px; border-radius: 5px; border-color: var(--purple);">
+          </div>
+          <div style="background-color: white;">
+            <div
+              style="padding: 20px 40px; width: 50%; margin: 0px auto; color: black;">
               <h3>Project Details</h3>
-              <h4 style="text-transform: capitalize;">Status: <b>{{ fetchedData.status }}</b></h4>
               <h4 style="">Base Design: <b>{{ fetchedData.templateTitle }}</b></h4>
               <h4 style="">Color: <b>{{ fetchedData.colour }}</b></h4>
               <h4 style="">Number of Videos: <b>{{ fetchedData.nVid }}</b></h4>
@@ -94,6 +107,7 @@
                 <h3 style="margin: 0 0 10px">{{ fetchedData.total }} {{ fetchedData.currency }}</h3>
               </div>
             </div>
+          </div>
           </div>
         </div>
         </transition>
