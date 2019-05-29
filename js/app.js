@@ -149,7 +149,9 @@ var vm = new Vue({
       Costs: [200, 100],
       Imgs: ["../img/Stock/kenrick-mills-1567595-unsplash.jpg",
         ],
+
     },
+    previewVid: "https://www.youtube.com/watch?v=205cIh1KJDU",
     bkgPlace: "../",
     stages:{
       01:{

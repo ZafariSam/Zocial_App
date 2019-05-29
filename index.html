@@ -9,6 +9,7 @@
     <title>Zocial App | Studio Zafari</title>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
     <style>
       :root{
@@ -346,7 +347,7 @@
                   >
                   <a href='#selection'>
                     <div class="gif-load" v-bind:style="{ backgroundImage: 'url(' + bkgPlace + ')' }">
-                      <div class='img-load' style= "width:50px; height: 50px; position: fixed; top: 40%; left: 43%; z-index:-1;"><img width="50px" height="50px" style="" src="assets/Loader_01.gif"/>
+                      <div class='img-load' style= "width:50px; height: 50px; position: fixed; top: 40%; left: 43%; z-index:-1;"><img width="50px" height="50px" style="" src=""/>
                       </div>
                       <div class="cata-box"
                         style=" width: 400px; height: 300px;"
@@ -379,7 +380,7 @@
           <div style="height: 100%; min-height: min-content; overflow:hidden; display: flex; margin: 0 50px;">
 
             <div class="" style="width: 50%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
-              <div class="" style="height: 100%; background-color: #0005">
+              <div class="" style="height: 100%;">
                 <div style="position: relative; top: 45%;">
                   <div
                     style="cursor: pointer; width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px; background-color: var(--purple);">
@@ -509,6 +510,8 @@
         </div>
       </transition>
 
+
+
       <transition name="fade">
         <div class="success-page"
           v-if="sent" v-show="!loading"
@@ -610,8 +613,14 @@
       const db = firebase.firestore();
     </script>
 <!-- vuejs -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <!-- scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
