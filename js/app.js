@@ -58,16 +58,18 @@ var vm = new Vue({
         Costs: [450],
         Imgs: ["img/Thumbnails/101_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=I3Ofn1hYpdM",
       },
       02:{
         Ref: 102,
-        Title: "Snappy Promo",
+        Title: "Event Promo",
         Length: 15,
         Tagline: "Tagline for the template",
         Des: "Description",
         Costs: [350],
         Imgs: ["img/Thumbnails/102_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=y_fcqAAhLHc",
       },
       03:{
         Ref: 103,
@@ -78,6 +80,7 @@ var vm = new Vue({
         Costs: [400],
         Imgs: ["img/Thumbnails/103_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=lHNlN8dbCPs",
       },
       04:{
         Ref: 104,
@@ -88,6 +91,7 @@ var vm = new Vue({
         Costs: [400],
         Imgs: ["img/Thumbnails/104_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=205cIh1KJDU",
       },
       05:{
         Ref: 105,
@@ -98,6 +102,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/105_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=TCgMZ11mXD0",
       },
       06:{
         Ref: 106,
@@ -108,6 +113,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/106_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=HtJgm_qbsvw",
       },
       07:{
         Ref: 107,
@@ -118,6 +124,7 @@ var vm = new Vue({
         Costs: [600],
         Imgs: ["img/Thumbnails/107_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=Tqfe4i2oIns",
       },
       08:{
         Ref: 108,
@@ -128,6 +135,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/108_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=KeflWZFyctU",
       },
       09:{
         Ref: 109,
@@ -138,6 +146,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/109_Thumb.jpg",
         ],
+        previewVid: "https://www.youtube.com/watch?v=UKVR4IjtxrQ",
       },
     },
     cataLength: null,
@@ -151,9 +160,7 @@ var vm = new Vue({
       Costs: [200, 100],
       Imgs: ["../img/Stock/kenrick-mills-1567595-unsplash.jpg",
         ],
-
     },
-    previewVid: "https://www.youtube.com/watch?v=205cIh1KJDU",
     bkgPlace: "../",
     stages:{
       01:{

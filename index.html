@@ -38,6 +38,9 @@
       button{
         cursor: pointer;
       }
+      a:link {
+        color: white;
+      }
       h1{
         font-size: 3rem;
         margin: 0px;
@@ -382,10 +385,12 @@
             <div class="" style="width: 50%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
               <div class="" style="height: 100%;">
                 <div style="position: relative; top: 45%;">
-                  <div
-                    style="cursor: pointer; width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px; background-color: var(--purple);">
-                    Play Video
-                  </div>
+                  <a data-fancybox v-bind:href="selectedTem.previewVid">
+                    <div
+                      style="cursor: pointer; width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px; background-color: var(--purple);">
+                      Play Video
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
