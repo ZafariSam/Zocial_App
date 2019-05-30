@@ -215,7 +215,13 @@
         width: 40px;
       }
       .pre-vid-block{
-
+        height: 100%;
+      }
+      .temp-sel-pre{
+        height: 100%; min-height: min-content; overflow:hidden; display: flex; margin: 0 50px;
+      }
+      .sel-pre-vid{
+        width: 50%; background-size: contain;
       }
       .fade-enter-active, .fade-leave-active {
         transition: opacity 0.5s;
@@ -259,6 +265,18 @@
         .how-it-works{
           padding: 10%;
         }
+        .tem-intro-text{
+          width: 100%;
+        }
+        .pre-vid-block{
+          height: 400px;
+        }
+        .temp-sel-pre{
+          display: block;
+        }
+        .sel-pre-vid{
+          width:100%
+        }
       }
 
     </style>
@@ -295,7 +313,7 @@
 
       <transition name="fade">
         <div title="Why Zafari" v-if="!sent"
-        v-show="!loading" style="margin-top: 40px; display: flex;">
+          v-show="!loading" style="margin-top: 40px; display: flex;">
           <div style="width: 50%; padding-left: 60px; background-image: url('./img/stock/ResponsivePhoneDevice.png'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
           <div style="width:40%; padding: 20px 70px; color: white; border-radius: 5px;">
             <div class="features-block">
@@ -396,10 +414,10 @@
 
       <transition name="fade">
         <div class="temp-selection" v-bind:id="selectedTem.Ref" v-if="selected" style="">
-          <div style="height: 100%; min-height: min-content; overflow:hidden; display: flex; margin: 0 50px;">
+          <div class="temp-sel-pre" style="">
 
-            <div class="" style="width: 50%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
-              <div class="pre-vid-block" style="height: 100%;">
+            <div class="sel-pre-vid" style="" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+              <div class="pre-vid-block" style="">
                 <div style="position: relative; top: 45%;">
                   <a data-fancybox v-bind:href="selectedTem.previewVid">
                     <div
