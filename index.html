@@ -452,13 +452,23 @@
 
           <section id="customize" style="width: 100%; display: flex">
             <div class="ex-deatils" style="">
-              <div class="" id="example-01" style="height: 90vh; padding: 20% 10%; box-sizing: border-box;">
-                <h6>Section Title</h6>
-                <h1>Bold Title<span>.</span></h1>
-                <h2>Sub Title goes here blah blah blah...</h2>
-                <h4>This is where the main body text goes. This section will be the longest and go into the detail blah blah blah...</h4>
-                <a href="#example-02"><div class="Top-Btn">Continue</div></a>
+
+              <div style="padding: 170px 50px 0px 50px;">
+                <div style="transform: rotate3d(135,-90,90,50deg);">
+                  <div style="display: flex; margin: auto; width: 500px">
+                    <div class="tem-intro" style="" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+                      <div style="margin: 20px; width:80px; height: 80px; background-color: #0000; position: relative; bottom: -320px">
+                        <img style="width: 80%; margin: 10%" src="img/Zafari_Icon_02.png" alt="example-Icon">
+                      </div>
+                    </div>
+                    <div style="transform: translate(-200px, 0px);">
+                        <div class="demo-scrn-tab" id="ex-tab-01" style=" margin-top:50px; font-weight: 700;">{{ selectedTem.Title }}</div>
+                        <div class="demo-scrn-tab" id="ex-tab-02" style="margin-top:10px;">Hello</div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <div class="" id="example-02" style="height: 90vh; padding: 15% 10%; box-sizing: border-box;">
                 <h6>Section Title</h6>
                 <h1>Bold Title<span>.</span></h1>
