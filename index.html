@@ -485,7 +485,7 @@
                         v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
                       <div
                         style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                        @click="validEmail(emailAdd)"
+                        @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd')"
                         class="Top-Btn"
                         >
                         Submit</div>
@@ -514,7 +514,7 @@
                 v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
               <div
                 style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                @click="validEmail(customEmailAdd)"
+                @click="validEmail(customEmailAdd, 'sendEmailSecondary', 'customEmailAdd')"
                 class="Top-Btn"
                 >Submit
               </div>

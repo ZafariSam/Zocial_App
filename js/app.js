@@ -208,7 +208,7 @@ var vm = new Vue({
   }, //End of Data
 
   methods: {
-      sendEmail: function(){
+      sendEmailMain: function(){
         let self= this;
         db.collection("recieved").add({
           email: this.checkedEmail,
@@ -237,18 +237,32 @@ var vm = new Vue({
           this.selected= false;
       },
 
+      sendEmailSecondary: function(){
+        let self= this;
+        db.collection("customReq").add({
+          email: this.checkedEmail,
+        })
+        .then(function(docRef) {
+            self.snackCall('toast', 4000, 'Thanks! We will get back to you ASAP');
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+          this.checkedEmail = "";
+      },
+
       validateEmail: function(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
         },
 
-      validEmail: function(emailVar){
+      validEmail: function(emailVar, send, emailMod){
         let self = this;
         if (this.validateEmail(emailVar)) {
           //sendData
           this.checkedEmail = emailVar;
-          this.emailAdd = "";
-          this.sendEmail()
+          this[emailMod] = "";
+          this[send]()
 
         } else {
           this.emailClass = ['#ff2e64', 'white'];
