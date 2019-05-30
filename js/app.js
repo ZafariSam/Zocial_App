@@ -294,10 +294,10 @@ var vm = new Vue({
       },
 
       getProjectData: async function(ordRef){
-        if(this.emailInput && this.orderInput.length > 19){
+        if(this.emailAdd && this.orderInput.length > 19){
           this.loading= true;
           await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() );
-        if (this.fetchedEmail.email == this.emailInput)
+        if (this.fetchedEmail.email == this.emailAdd)
             {
              this.loaderCall(1000);
              this.fetchedData = this.fetchedEmail;
@@ -309,7 +309,7 @@ var vm = new Vue({
             };
         if(this.fetchedData.email){
           this.setCookie('OrderRef', this.orderInput, 5, '/orders');
-          this.emailInput = null;
+          this.emailAdd = '';
           this.currentOrder = this.orderInput;
           this.orderInput = "";
         } else {
