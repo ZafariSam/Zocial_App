@@ -343,7 +343,7 @@
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_03.svg" alt="feat_03"> </div>
               <h3>Flexible</h3>
-              <p>Depending on your needs we can create more or less content as you need.</p>
+              <p>Different platforms work best with specific content sizes and resolutions we can export videos to work best on which ever platform you need.</p>
             </div>
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_04.svg" alt="feat_04"> </div>
@@ -465,8 +465,14 @@
                       </div>
                     </div>
                     <div style="transform: translate(-200px, 0px);">
-                        <div class="demo-scrn-tab" id="ex-tab-01" style=" margin-top:50px; font-weight: 700;">{{ selectedTem.Title }}</div>
-                        <div class="demo-scrn-tab" id="ex-tab-02" style="margin-top:10px;">Custom Text</div>
+                        <div class="demo-scrn-tab" id="ex-tab-01"
+                          style="margin-top:50px; font-weight: 700;"
+                          v-bind:style="{ backgroundColor: customColor }"
+                          >{{ selectedTem.Title }}</div>
+                        <div class="demo-scrn-tab" id="ex-tab-02"
+                          style="margin-top:10px;"
+                          v-bind:style="{ backgroundColor: customColor }"
+                          >Custom Text</div>
                     </div>
                   </div>
                 </div>
