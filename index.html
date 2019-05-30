@@ -215,7 +215,7 @@
         width: 40px;
       }
       .pre-vid-block{
-        
+
       }
       .fade-enter-active, .fade-leave-active {
         transition: opacity 0.5s;
@@ -484,10 +484,10 @@
                         style="width: 70%;"
                         v-model="emailAdd"
                         type="text" name="fname" placeholder="Email Address..."
-                        v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+                        v-bind:style="{ backgroundColor: emailClass01[0], color: emailClass01[1]}">
                       <div
                         style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                        @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd')"
+                        @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd', 'emailClass01')"
                         class="Top-Btn"
                         >
                         Submit</div>
@@ -513,10 +513,10 @@
                 style="width: 100%;"
                 v-model="customEmailAdd"
                 type="text" name="fname" placeholder="Email Address..."
-                v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+                v-bind:style="{ backgroundColor: emailClass02[0], color: emailClass02[1]}">
               <div
                 style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                @click="validEmail(customEmailAdd, 'sendEmailSecondary', 'customEmailAdd')"
+                @click="validEmail(customEmailAdd, 'sendEmailSecondary', 'customEmailAdd', 'emailClass02')"
                 class="Top-Btn"
                 >Submit
               </div>
@@ -620,10 +620,10 @@
               style="width: 70%;"
               v-model="emailAdd"
               type="text" name="fname" placeholder="Email Address..."
-              v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+              v-bind:style="{ backgroundColor: emailClass01[0], color: emailClass01[1]}">
             <div
               style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-              @click="validEmail()"
+              @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd', 'emailClass01')"
               class="Top-Btn"
               >Submit
             </div>

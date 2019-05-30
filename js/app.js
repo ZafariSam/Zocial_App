@@ -41,7 +41,8 @@ var vm = new Vue({
     customEmailAdd:"",
     checkedEmail:"",
     customColor: null,
-    emailClass: ['',''],
+    emailClass01: ['',''],
+    emailClass02: ['',''],
     currency: 'ZAR',
     currencyBase: 1,
     currencySym: 'R',
@@ -256,7 +257,7 @@ var vm = new Vue({
         return re.test(email);
         },
 
-      validEmail: function(emailVar, send, emailMod){
+      validEmail: function(emailVar, send, emailMod, styleClass){
         let self = this;
         if (this.validateEmail(emailVar)) {
           //sendData
@@ -265,8 +266,8 @@ var vm = new Vue({
           this[send]()
 
         } else {
-          this.emailClass = ['#ff2e64', 'white'];
-          setTimeout(function(){ self.emailClass = []; }, 3000);
+          this[styleClass] = ['#ff2e64', 'white'];
+          setTimeout(function(){ self[styleClass] = []; }, 3000);
         }
         return false;
       },
