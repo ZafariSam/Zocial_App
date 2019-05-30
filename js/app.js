@@ -365,10 +365,6 @@ var vm = new Vue({
         location.reload();
       },
 
-      sendReq: function(){
-
-      },
-
 //Note: Call like this: snackCall('toast', 3000, 'Success! Your toast bar is working', initial)
       snackCall: function(id, timeout, textInp, color){
         this.snackDefault.text = textInp;
