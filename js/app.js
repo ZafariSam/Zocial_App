@@ -361,7 +361,7 @@ var vm = new Vue({
       },
 
       deleteCookie: function(cname, path){
-        document.cookie = cname + "=" + this.currentOrder +"; expires=Thu, 10 Dec 2010 12:00:00 UTC; path=/" + path + ".html";
+        document.cookie = cname + "=" + this.currentOrder +"; expires=Thu, 10 Dec 2010 12:00:00 UTC; path=/" + path;
         location.reload();
       },
 
