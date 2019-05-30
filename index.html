@@ -501,6 +501,31 @@
       </transition>
 
       <transition name="fade">
+        <div class="custom-built"
+          v-if="!sent"
+          v-show="!loading"
+          style="width: 100%; background-color: #0005;">
+          <div style="padding: 100px 10%; text-align: center;">
+            <h1>Need something custom?</h1>
+            <h4>We can design a custom template to suit your needs.</h4>
+            <div class="" style="display: flex; margin: 20px auto; width: 70%">
+              <input
+                style="width: 100%;"
+                v-model="emailAdd"
+                type="text" name="fname" placeholder="Email Address..."
+                v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
+              <div
+                style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
+                @click="validEmail()"
+                class="Top-Btn"
+                >Submit
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+
+      <transition name="fade">
         <div class="how"
           v-if="!sent"
           v-show="!loading"
@@ -528,13 +553,7 @@
         </div>
       </transition>
 
-      <div class="custom-built"
-        v-if="!sent"
-        v-show="!loading">
-      </div>
-
-      <div class="" style="height:200vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
-
+      <div class="" style="height:100vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
       </div>
 
       <transition name="fade">
