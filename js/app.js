@@ -313,13 +313,13 @@ var vm = new Vue({
           this.currentOrder = this.orderInput;
           this.orderInput = "";
         } else {
-          this.emailClass = ['red'];
-          setTimeout(function(){ self.emailClass = []; }, 3000);
+          this.emailClass01 = ['red'];
+          setTimeout(function(){ self.emailClass01 = []; }, 3000);
         };
       } else {
         self = this;
-        this.emailClass = ['red'];
-        setTimeout(function(){ self.emailClass = []; }, 3000);
+        this.emailClass01 = ['red'];
+        setTimeout(function(){ self.emailClass01 = []; }, 3000);
       };
     },
 
