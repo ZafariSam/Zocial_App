@@ -227,7 +227,7 @@ var vm = new Vue({
         .then(function(docRef) {
             self.orderData.orderNo =[];
             self.orderData.orderNo.push(docRef.id);
-            self.setCookie('OrderRef', self.orderData.orderNo[0], 5, '/orders.html');
+            self.setCookie('OrderRef', self.orderData.orderNo[0], 5, '/orders');
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);

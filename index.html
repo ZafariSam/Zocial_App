@@ -214,6 +214,9 @@
       .feat-icon{
         width: 40px;
       }
+      .pre-vid-block{
+        
+      }
       .fade-enter-active, .fade-leave-active {
         transition: opacity 0.5s;
       }
@@ -396,7 +399,7 @@
           <div style="height: 100%; min-height: min-content; overflow:hidden; display: flex; margin: 0 50px;">
 
             <div class="" style="width: 50%; background-size: contain;" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
-              <div class="" style="height: 100%;">
+              <div class="pre-vid-block" style="height: 100%;">
                 <div style="position: relative; top: 45%;">
                   <a data-fancybox v-bind:href="selectedTem.previewVid">
                     <div
@@ -407,7 +410,6 @@
                 </div>
               </div>
             </div>
-
             <div class="tem-intro-text" style="background-color: var(--purple);">
               <h6>Template Title</h6>
               <h1>{{ selectedTem.Title }}<span>.</span></h1>
@@ -656,7 +658,7 @@
       const db = firebase.firestore();
     </script>
 <!-- vuejs -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
 <!-- scripts -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
