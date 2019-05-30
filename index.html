@@ -113,6 +113,7 @@
       .ex-deatils{
         width: 50%;
         height: 100%;
+        overflow: hidden;
       }
       .sb-details-mob{
         display: none;
@@ -161,7 +162,7 @@
         color: #fff8; padding: 10px; margin-left: auto; background-color: var(--green); color:var(--dark); margin: 0; height: 20px; width: 10px
       }
       .tem-intro{
-        width: 300px; height: 450px; box-shadow: 10px 10px 10px #0003; background-size: cover;
+        width: 300px; height: 480px; background-size: cover;
       }
       .tem-intro-text{
         padding: 80px 5% 80px 10%;
@@ -455,8 +456,10 @@
 
               <div style="padding: 170px 50px 0px 50px;">
                 <div style="transform: rotate3d(135,-90,90,50deg);">
-                  <div style="display: flex; margin: auto; width: 500px">
-                    <div class="tem-intro" style="" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+                  <div
+                    style="display: flex; margin: auto; width: 540px; box-shadow: 10px 10px 10px #0005; background-position: center;"
+                    v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
+                    <div class="tem-intro" style="">
                       <div style="margin: 20px; width:80px; height: 80px; background-color: #0000; position: relative; bottom: -320px">
                         <img style="width: 80%; margin: 10%" src="img/Zafari_Icon_02.png" alt="example-Icon">
                       </div>
