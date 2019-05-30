@@ -38,6 +38,7 @@ var vm = new Vue({
     vidNum: 4,
     imgNum: 2,
     emailAdd: "",
+    customEmailAdd:"",
     checkedEmail:"",
     customColor: null,
     emailClass: ['',''],
@@ -241,11 +242,11 @@ var vm = new Vue({
         return re.test(email);
         },
 
-      validEmail: function(){
+      validEmail: function(emailVar){
         let self = this;
-        if (this.validateEmail(this.emailAdd)) {
+        if (this.validateEmail(emailVar)) {
           //sendData
-          this.checkedEmail = this.emailAdd;
+          this.checkedEmail = emailVar;
           this.emailAdd = "";
           this.sendEmail()
 
@@ -350,7 +351,7 @@ var vm = new Vue({
       },
 
       sendReq: function(){
-        
+
       },
 
 //Note: Call like this: snackCall('toast', 3000, 'Success! Your toast bar is working', initial)

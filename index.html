@@ -417,8 +417,6 @@
 
           </div>
 
-          <div style="width:100%; height: 10px; background-color: black; filter: blur(20px);"></div>
-
           <section id="customize" style="width: 100%; display: flex">
             <div class="ex-deatils" style="">
               <div class="" id="example-01" style="height: 90vh; padding: 20% 10%; box-sizing: border-box;">
@@ -487,7 +485,7 @@
                         v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
                       <div
                         style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                        @click="validEmail()"
+                        @click="validEmail(emailAdd)"
                         class="Top-Btn"
                         >
                         Submit</div>
@@ -511,12 +509,12 @@
             <div class="" style="display: flex; margin: 20px auto; width: 70%">
               <input
                 style="width: 100%;"
-                v-model="emailAdd"
+                v-model="customEmailAdd"
                 type="text" name="fname" placeholder="Email Address..."
                 v-bind:style="{ backgroundColor: emailClass[0], color: emailClass[1]}">
               <div
                 style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-                @click="validEmail()"
+                @click="validEmail(customEmailAdd)"
                 class="Top-Btn"
                 >Submit
               </div>
@@ -553,7 +551,8 @@
         </div>
       </transition>
 
-      <div class="" style="height:100vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
+      <div class="bk-txture"
+        style="height:100vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
       </div>
 
       <transition name="fade">
@@ -657,7 +656,7 @@
       const db = firebase.firestore();
     </script>
 <!-- vuejs -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <!-- scripts -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
