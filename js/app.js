@@ -308,7 +308,7 @@ var vm = new Vue({
               this.fetchedEmail = null
             };
         if(this.fetchedData.email){
-          this.setCookie('OrderRef', this.orderInput, 5, '/orders.html');
+          this.setCookie('OrderRef', this.orderInput, 5, '/orders');
           this.emailInput = null;
           this.currentOrder = this.orderInput;
           this.orderInput = "";
