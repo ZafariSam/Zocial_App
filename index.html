@@ -275,7 +275,7 @@
         <div title="Header"
           v-if="!sent"
           v-show="!loading"
-          style="top: 85px; position: relative;"
+          style="top: 85px; position: relative; background-image: url('')"
           >
           <div class="" style="padding: 100px 10% 100px; text-align: center;">
             <h1 style="font-size: 3em; font-weight: 900;">Grow your social media following<span>.</span><h1>
@@ -528,7 +528,14 @@
         </div>
       </transition>
 
+      <div class="custom-built"
+        v-if="!sent"
+        v-show="!loading">
+      </div>
 
+      <div class="" style="height:200vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
+
+      </div>
 
       <transition name="fade">
         <div class="success-page"
