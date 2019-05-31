@@ -225,6 +225,7 @@ var vm = new Vue({
           status: "pending",
           currency: this.currency,
           deliveryTime: null,
+          Location: this.userLocation.country,
         })
         .then(function(docRef) {
             self.orderData.orderNo =[];
@@ -284,12 +285,14 @@ var vm = new Vue({
         this.currencySym = crtSyb;
       },
 
-      getLocation: function(){
-        self= this;
+      getLocation: async function(){
+        let self= this;
         fetch('http://ip-api.com/json/')
         .then(function(response){
           response.json().then(function(data){
             self.userLocation = data;
+            let loc = data.country;
+            self.setCookie('location', loc, 3, '/')
           })
         })
       },
@@ -486,6 +489,11 @@ var vm = new Vue({
       //Catalogue Length
       let ob = Object.keys(this.temCata);
       this.cataLength = ob.length;
+
+      let loc = this.getCookie('location');
+      if(loc == "") {
+        this.getLocation()
+      } else {this.userLocation.country = loc}
 
       let pV = this.getCookie('pageView');
         if (pV == "") {

@@ -528,7 +528,7 @@
                           >
                           <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
                       </div>
-                      <div style="display: flex; width: 100%">
+                      <div style="display: flex; width: 100%; margin: 10px 0;">
                         <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Video Posts:</h4>
                         <div class="" @click="vidNum > 1 ? vidNum-- : vidNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
                         <h4 class="counter-01" style="">
@@ -637,6 +637,8 @@
           </div>
         </div>
       </transition>
+
+      {{userLocation}}
 
       <transition name="fade">
         <div class="sb-details-mob"
