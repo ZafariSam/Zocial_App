@@ -40,6 +40,7 @@ var vm = new Vue({
     emailAdd: "",
     customEmailAdd:"",
     checkedEmail:"",
+    orderDetailsInp:"",
     customColor: null,
     emailClass01: ['',''],
     emailClass02: ['',''],
@@ -212,6 +213,7 @@ var vm = new Vue({
         let self= this;
         db.collection("recieved").add({
           email: this.checkedEmail,
+          details: this.orderDetailsInp,
           templateTitle: this.selectedTem.Title,
           templateRef: this.selectedTem.Ref,
           nVid: this.vidNum,
