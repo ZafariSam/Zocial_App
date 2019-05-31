@@ -222,7 +222,7 @@
         height: 100%; min-height: min-content; overflow:hidden; display: flex; margin: 0 50px;
       }
       .sel-pre-vid{
-        width: 50%; background-size: contain;
+        width: 50%; background-size: cover; background-position: center;
       }
       .phoneImg{
         display: block;
@@ -433,7 +433,7 @@
             <div class="sel-pre-vid" style="" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
               <div class="pre-vid-block" style="">
                 <div style="position: relative; top: 45%;">
-                  <a data-fancybox v-bind:href="selectedTem.previewVid">
+                  <a data-fancybox v-bind:href="selectedTem.previewVid + '?autoplay=1'">
                     <div
                       style="cursor: pointer; width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px; background-color: var(--purple);">
                       Play Video
