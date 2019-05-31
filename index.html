@@ -390,7 +390,7 @@
                   v-for="(cata, index) in temCata"
                   v-if="index <= catalogueLimit[1] && index >= catalogueLimit[0]"
                   v-bind:id="cata.Ref"
-                  style="margin: 20px; background-color: white; background-size: cover; border-radius: 10px; background-position: center;"
+                  style="margin: 20px; background-color: white; background-size: cover; border-radius: 4px; background-position: center; border-style: solid; border-color: var(--green); border-width: 1px;"
                   @click="selected = true, selectedTem = cata"
                   @mouseover="preview= true"
                   @mouseout="preview= false"
