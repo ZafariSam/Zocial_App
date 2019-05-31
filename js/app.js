@@ -389,6 +389,7 @@ var vm = new Vue({
       },
 
       currencyGet: function(){
+        let self = this;
         fetch('https://api.exchangeratesapi.io/latest?base=ZAR')
          .then(
            function(response) {
@@ -516,6 +517,7 @@ var vm = new Vue({
           }
         }
       )};
+
 
   }, //End of Created Hook
 
