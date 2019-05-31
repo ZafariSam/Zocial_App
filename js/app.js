@@ -504,7 +504,7 @@ var vm = new Vue({
             }
           else{
             this.snackCall('toast', 3000, 'Error getting your order');
-            deleteCookie('OrderRef', 'orders');
+            this.deleteCookie('OrderRef', 'orders');
           }
         }
       )};
