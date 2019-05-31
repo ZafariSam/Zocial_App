@@ -163,7 +163,6 @@ var vm = new Vue({
       Imgs: ["../img/Stock/kenrick-mills-1567595-unsplash.jpg",
         ],
     },
-    bkgPlace: "../",
     stages:{
       01:{
         Title: "Select a design",
