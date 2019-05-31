@@ -294,38 +294,55 @@ var vm = new Vue({
         })
       },
 
+
+//       docRef.get().then(function(doc) {
+//     if (doc.exists) {
+//         console.log("Document data:", doc.data());
+//     } else {
+//         // doc.data() will be undefined in this case
+//         console.log("No such document!");
+//     }
+// }).catch(function(error) {
+//     console.log("Error getting document:", error);
+// });,
+
+
+
       getProjectData: async function(ordRef){
         if(this.emailAdd && this.orderInput.length > 19){
           this.loading= true;
-          await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() )
-          .catch(function(error) {
-              console.error("Error getting document: ", error);
-          });
-        if (this.fetchedEmail.email == this.emailAdd)
-            {
-             this.loaderCall(1000);
-             this.fetchedData = this.fetchedEmail;
-             this.orderStatus = this.fetchedEmail.status;
-            }
-            else {
+          await db.collection("recieved").doc(ordRef).get().then( doc => {
+            if (doc.exists){
+              this.fetchedEmail = doc.data();
+              if (this.fetchedEmail.email == this.emailAdd){
+                   this.loaderCall(1000);
+                   this.fetchedData = this.fetchedEmail;
+                   this.orderStatus = this.fetchedEmail.status;
+                  }
+                  else {
+                    this.loading = false;
+                    this.fetchedEmail = null;
+                    this.snackCall('toast', 3000, 'Sorry, incorrect email address');
+                  };
+            } else{
               this.loading = false;
-              this.fetchedEmail = null
-            };
-        if(this.fetchedData.email){
-          this.setCookie('OrderRef', this.orderInput, 5, '/orders');
-          this.emailAdd = '';
-          this.currentOrder = this.orderInput;
-          this.orderInput = "";
-        } else {
-          this.emailClass01 = ['red'];
-          setTimeout(function(){ self.emailClass01 = []; }, 3000);
-        };
-      } else {
-        self = this;
-        this.emailClass01 = ['red'];
-        setTimeout(function(){ self.emailClass01 = []; }, 3000);
-      };
-    },
+              this.snackCall('toast', 3000, 'Sorry, incorrect order ref. Please Try Again')
+            }})
+              .catch(function(error) {
+                console.error("Error getting document: ", error);
+          });
+
+          if(this.fetchedData.email){
+            this.setCookie('OrderRef', this.orderInput, 5, '/orders');
+            this.emailAdd = '';
+            this.currentOrder = this.orderInput;
+            this.orderInput = "";
+          } else {
+            this.emailClass01 = ['red'];
+            setTimeout(function(){ self.emailClass01 = []; }, 3000);
+          };
+
+    }},
 
       addMore: function(){
           let cataState = this.catalogueLimit[1];
