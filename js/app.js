@@ -492,7 +492,7 @@ var vm = new Vue({
         } else {
           pV ++;
           this.setCookie('pageView', pV, 3, '/');
-        }
+        };
 
       var oR = this.getCookie("OrderRef");
         if (oR != "") {
@@ -504,7 +504,8 @@ var vm = new Vue({
           else{
             this.snackCall('toast', 3000, 'Error getting your order');
           }
-        })}
+        }
+      )};
 
   }, //End of Created Hook
 
