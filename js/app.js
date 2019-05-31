@@ -60,7 +60,7 @@ var vm = new Vue({
         Costs: [450],
         Imgs: ["img/Thumbnails/101_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=I3Ofn1hYpdM",
+        previewVid: "https://youtu.be/78eHzu0oCxY",
       },
       02:{
         Ref: 102,
