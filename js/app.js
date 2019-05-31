@@ -496,9 +496,15 @@ var vm = new Vue({
 
       var oR = this.getCookie("OrderRef");
         if (oR != "") {
-          db.collection("recieved").doc(oR).get().then(doc => this.fetchedData = doc.data() );
-          this.currentOrder = oR;
-        }
+          db.collection("recieved").doc(oR).get().then(doc => {
+            if (doc.exists){
+              this.fetchedData = doc.data();
+              this.currentOrder = oR;
+            }
+          else{
+            this.snackCall('toast', 3000, 'Error getting your order');
+          }
+        })}
 
   }, //End of Created Hook
 
