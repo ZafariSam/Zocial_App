@@ -297,7 +297,10 @@ var vm = new Vue({
       getProjectData: async function(ordRef){
         if(this.emailAdd && this.orderInput.length > 19){
           this.loading= true;
-          await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() );
+          await db.collection("recieved").doc(ordRef).get().then( doc => this.fetchedEmail = doc.data() )
+          .catch(function(error) {
+              console.error("Error getting document: ", error);
+          });
         if (this.fetchedEmail.email == this.emailAdd)
             {
              this.loaderCall(1000);
