@@ -126,7 +126,7 @@ var vm = new Vue({
         Costs: [600],
         Imgs: ["img/Thumbnails/107_Thumb.jpg",
         ],
-        previewVid: "https://vimeo.com/339505358",
+        previewVid: "https://vimeo.com/339505269",
       },
       08:{
         Ref: 108,
@@ -137,7 +137,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/108_Thumb.jpg",
         ],
-        previewVid: "https://vimeo.com/339505358",
+        previewVid: "https://vimeo.com/339505422",
       },
       09:{
         Ref: 109,
@@ -148,7 +148,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/109_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=UKVR4IjtxrQ",
+        previewVid: "https://vimeo.com/339505358",
       },
     },
     cataLength: null,
