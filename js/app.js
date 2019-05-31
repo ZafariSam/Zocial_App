@@ -323,6 +323,7 @@ var vm = new Vue({
             this.currentOrder = this.orderInput;
             this.orderInput = "";
           } else {
+            let self = this;
             this.emailClass01 = ['red'];
             setTimeout(function(){ self.emailClass01 = []; }, 3000);
           };
@@ -503,6 +504,7 @@ var vm = new Vue({
             }
           else{
             this.snackCall('toast', 3000, 'Error getting your order');
+            deleteCookie('OrderRef', 'orders');
           }
         }
       )};
