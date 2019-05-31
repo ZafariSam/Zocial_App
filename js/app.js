@@ -204,7 +204,7 @@ var vm = new Vue({
     orderInput: "",
     currentOrder:"#123456789123456789",
     fetchedData: {email: null, templateTitle: '', color: '', nVid: 0, nImg: 0, total:'', currency:'', dateAdded:{seconds:0},  },
-    fetchedEmail: null,
+    fetchedEmail: '',
 
   }, //End of Data
 
