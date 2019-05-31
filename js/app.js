@@ -312,7 +312,7 @@ var vm = new Vue({
                   };
             } else{
               this.loading = false;
-              this.snackCall('toast', 3000, 'Sorry, incorrect order ref. Please Try Again')
+              this.snackCall('toast', 3000, 'Sorry, incorrect order reference. Please try again')
             }})
               .catch(function(error) {
                 console.error("Error getting document: ", error);
