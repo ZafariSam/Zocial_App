@@ -160,6 +160,7 @@
       }
       .cata-loop{
         transform: translateY(0px);
+        margin: 20px; background-color: white; background-size: cover; border-radius: 4px; background-position: center; border-style: solid; border-color: var(--green); border-width: 1px;
       }
       .cata-loop:hover{
         transform: translateY(-10px);
@@ -355,7 +356,7 @@
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_03.svg" alt="feat_03"> </div>
               <h3>Flexible</h3>
-              <p>Pay for the template once and can reuse it as many time as you want. Add on more videos as you nees them.</p>
+              <p>Pay for the template once and can reuse it as many times as you want. Add on more videos as you need them.</p>
             </div>
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_04.svg" alt="feat_04"> </div>
@@ -402,7 +403,7 @@
                   v-for="(cata, index) in temCata"
                   v-if="index <= catalogueLimit[1] && index >= catalogueLimit[0]"
                   v-bind:id="cata.Ref"
-                  style="margin: 20px; background-color: white; background-size: cover; border-radius: 4px; background-position: center; border-style: solid; border-color: var(--green); border-width: 1px;"
+                  style=""
                   @click="selected = true, selectedTem = cata"
                   @mouseover="preview= true"
                   @mouseout="preview= false"
@@ -425,11 +426,12 @@
                     </div>
                   </a>
                 </div>
+                <div class="cata-loop" @click="addMore()" v-show="cataLength > catalogueLimit[1]"
+                  style="cursor: pointer; width: 300px; height: 300px; background-color: #fff0">
+                  <h3>Show More</h3>
+                </div>
               </div>
               <span id="selection"></span>
-              <div @click="addMore()" v-show="cataLength > catalogueLimit[1]" style="width: 100%; margin: 0 20px; cursor: pointer">
-                <b>Show More</b><img src="img/svg/More.svg" width="12px" height="12px" alt="" style="padding:0px 5px; transform: rotate(90deg);">
-              </div>
           </div>
         </div>
       </transition>
