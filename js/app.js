@@ -60,7 +60,7 @@ var vm = new Vue({
         Costs: [450],
         Imgs: ["img/Thumbnails/101_Thumb.jpg",
         ],
-        previewVid: "https://youtu.be/78eHzu0oCxY",
+        previewVid: "https://vimeo.com/339504624",
       },
       02:{
         Ref: 102,
@@ -71,7 +71,7 @@ var vm = new Vue({
         Costs: [350],
         Imgs: ["img/Thumbnails/102_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=y_fcqAAhLHc",
+        previewVid: "https://vimeo.com/339505170",
       },
       03:{
         Ref: 103,
@@ -82,7 +82,7 @@ var vm = new Vue({
         Costs: [400],
         Imgs: ["img/Thumbnails/103_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=lHNlN8dbCPs",
+        previewVid: "https://vimeo.com/339505178",
       },
       04:{
         Ref: 104,
@@ -93,7 +93,7 @@ var vm = new Vue({
         Costs: [400],
         Imgs: ["img/Thumbnails/104_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=205cIh1KJDU",
+        previewVid: "https://vimeo.com/339505185",
       },
       05:{
         Ref: 105,
@@ -104,7 +104,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/105_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=TCgMZ11mXD0",
+        previewVid: "https://vimeo.com/339505205",
       },
       06:{
         Ref: 106,
@@ -115,7 +115,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/106_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=HtJgm_qbsvw",
+        previewVid: "https://vimeo.com/339505219",
       },
       07:{
         Ref: 107,
@@ -126,7 +126,7 @@ var vm = new Vue({
         Costs: [600],
         Imgs: ["img/Thumbnails/107_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=Tqfe4i2oIns",
+        previewVid: "https://vimeo.com/339505358",
       },
       08:{
         Ref: 108,
@@ -137,7 +137,7 @@ var vm = new Vue({
         Costs: [500],
         Imgs: ["img/Thumbnails/108_Thumb.jpg",
         ],
-        previewVid: "https://www.youtube.com/watch?v=KeflWZFyctU",
+        previewVid: "https://vimeo.com/339505358",
       },
       09:{
         Ref: 109,
