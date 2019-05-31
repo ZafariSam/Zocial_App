@@ -294,20 +294,6 @@ var vm = new Vue({
         })
       },
 
-
-//       docRef.get().then(function(doc) {
-//     if (doc.exists) {
-//         console.log("Document data:", doc.data());
-//     } else {
-//         // doc.data() will be undefined in this case
-//         console.log("No such document!");
-//     }
-// }).catch(function(error) {
-//     console.log("Error getting document:", error);
-// });,
-
-
-
       getProjectData: async function(ordRef){
         if(this.emailAdd && this.orderInput.length > 19){
           this.loading= true;
@@ -330,8 +316,7 @@ var vm = new Vue({
             }})
               .catch(function(error) {
                 console.error("Error getting document: ", error);
-          });
-
+                });
           if(this.fetchedData.email){
             this.setCookie('OrderRef', this.orderInput, 5, '/orders');
             this.emailAdd = '';
@@ -341,8 +326,8 @@ var vm = new Vue({
             this.emailClass01 = ['red'];
             setTimeout(function(){ self.emailClass01 = []; }, 3000);
           };
-
-    }},
+      }
+    },
 
       addMore: function(){
           let cataState = this.catalogueLimit[1];
