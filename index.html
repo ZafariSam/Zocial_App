@@ -333,7 +333,7 @@
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_01.svg" alt="feat_01"> </div>
               <h3>Customizable</h3>
-              <p>All our templates can be adapted to meet your specific requirements.</p>
+              <p>Get the right video size for your post, whether is square, story size or standard HD.</p>
             </div>
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_02.svg" alt="feat_02"> </div>
@@ -343,11 +343,11 @@
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_03.svg" alt="feat_03"> </div>
               <h3>Flexible</h3>
-              <p>Different platforms work best with specific content sizes and resolutions we can export videos to work best on which ever platform you need.</p>
+              <p>Pay for the template once and can reuse it as many time as you want. Add on more videos as you nees them.</p>
             </div>
             <div class="features-block">
               <div class="feat-icon"><img src="img/svg/Feature_04.svg" alt="feat_04"> </div>
-              <h3>High Quality</h3>
+              <h3>High-Quality</h3>
               <p>Our templates and videos are professionally designed and aim to keep up to a high quality standard.</p>
             </div>
             <div class="features-block">
@@ -374,7 +374,7 @@
               <div class="" style="">
                 <h6 style="margin: 10px 0px;">Step 01</h6>
                 <h1 style="font-size: ">Select a design<span>.</span></h1>
-                <p style="font-size: 1.1em">Get started by choosing one of the templates below.</p>
+                <p style="font-size: 1.1em">Get started by choosing one of the <b>video templates below</b></p>
                 <a href="#how" style="color: white;">
                   <div class="how-works-btn"style="width: 150px; margin-bottom: 10px;">
                     <h5 style="font-size: 1.2em; margin-bottom: 5px;">How it works</h5>
@@ -433,7 +433,7 @@
             <div class="sel-pre-vid" style="" v-bind:style="{ backgroundImage: 'url(' + selectedTem.Imgs[0] + ')' }">
               <div class="pre-vid-block" style="">
                 <div style="position: relative; top: 45%;">
-                  <a data-fancybox v-bind:href="selectedTem.previewVid + '?autoplay=1'">
+                  <a data-fancybox v-bind:href="selectedTem.previewVid + '?autoplay=1&color=602d8f'">
                     <div
                       style="cursor: pointer; width: 150px; padding: 10px; margin:auto; border-style: solid; text-align: center; border-radius: 100px; background-color: var(--purple);">
                       Play Video
@@ -482,7 +482,7 @@
                 <h6>Step 02</h6>
                 <h1>Customize your order<span>.</span></h1>
                 <h2>Change the details of your order.</h2>
-                <h4>Need more or less videos? Choose a quantity that fits your need.</h4>
+                <h4>Need more or fewer videos? Choose a quantity that fits your need.</h4>
                 <!-- <div class="Top-Btn" style="">Features</div> -->
               </div>
             </div>
@@ -527,9 +527,10 @@
                         <div class="" @click="imgNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
                       </div>
                       <h6 style="margin-bottom: 10px">Total Cost</h6>
-                      <h2 style="margin-top: 10px" v-bind:style="{ color: valStyleCol }">{{ currencySym }}{{ calcVal }} {{currency}}</h2>
+                      <h2 style="margin: 10px 0" v-bind:style="{ color: valStyleCol }">{{ currencySym }}{{ calcVal }} {{currency}}</h2>
+                      <h5 style="margin:0; opacity: 0.5;">Delivery times: Within 3 days of confirmation</h5>
                     </div>
-                    <div class="" style="display: flex; margin: 40px 0px">
+                    <div class="" style="display: flex; margin: 20px 0px">
                       <input
                         style="width: 70%;"
                         v-model="emailAdd"
@@ -613,7 +614,7 @@
           style="width: 100%; min-height: 100vh; background-color: var(--dark); display: flex;">
           <div style="width: 500px; margin: auto; text-align: center;">
             <h2>Thanks for submitting you order!</h2>
-            <p>You will shortly receive a confirmation email.</p>
+            <p>Stand By! We’ll be in contact soon to get your details/branding</p>
             <p>Order Ref: <b>{{ orderData.orderNo[0] }}</b></p>
           </div>
         </div>
