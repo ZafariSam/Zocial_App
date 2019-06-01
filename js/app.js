@@ -494,7 +494,7 @@ var vm = new Vue({
       let loc = this.getCookie('location');
       if(loc == "") {
         this.getLocation()
-      } else {this.userLocation.country = loc}
+      } else {this.userLocation.country_name = loc}
 
       let pV = this.getCookie('pageView');
         if (pV == "") {
