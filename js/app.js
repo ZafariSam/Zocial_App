@@ -195,7 +195,7 @@ var vm = new Vue({
       orderNo:["Pending"],
     },
     windowWidth: window.innerWidth,
-    userLocation: { country: null },
+    userLocation: { country_name: null },
     snackDefault: { text: "placeholder text"},
 
     //OrderData
@@ -287,11 +287,11 @@ var vm = new Vue({
 
       getLocation: async function(){
         let self= this;
-        fetch('http://ip-api.com/json/')
+        fetch('https://api.ipgeolocation.io/ipgeo?apiKey=3ce85f343cf34b6eafb6aa392eb25fea')
         .then(function(response){
           response.json().then(function(data){
             self.userLocation = data;
-            let loc = data.country;
+            let loc = data.country_name;
             self.setCookie('location', loc, 3, '/')
           })
         })
