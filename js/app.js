@@ -225,7 +225,7 @@ var vm = new Vue({
           status: "pending",
           currency: this.currency,
           deliveryTime: null,
-          Location: this.userLocation.country,
+          Location: this.userLocation.country_name,
         })
         .then(function(docRef) {
             self.orderData.orderNo =[];
