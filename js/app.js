@@ -285,14 +285,13 @@ var vm = new Vue({
         this.currencySym = crtSyb;
       },
 
-      getLocation: async function(){
+      getLocation: function(){
         let self= this;
         fetch('https://api.ipgeolocation.io/ipgeo?apiKey=3ce85f343cf34b6eafb6aa392eb25fea')
         .then(function(response){
           response.json().then(function(data){
             self.userLocation = data;
-            let loc = data.country_name;
-            self.setCookie('location', loc, 3, '/')
+            self.currencyGet();
           })
         })
       },
@@ -399,7 +398,9 @@ var vm = new Vue({
                return;
              }
              response.json().then(function(data) {
-               return self.currencyData = data;
+               self.currencyData = data;
+               let ulc = self.userLocation.currency;
+               self.currencySelect(ulc.code, ulc.symbol)
              });
            }
          )
@@ -491,10 +492,7 @@ var vm = new Vue({
       let ob = Object.keys(this.temCata);
       this.cataLength = ob.length;
 
-      let loc = this.getCookie('location');
-      if(loc == "") {
-        this.getLocation()
-      } else {this.userLocation.country_name = loc}
+      this.getLocation()
 
       let pV = this.getCookie('pageView');
         if (pV == "") {
