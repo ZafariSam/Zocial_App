@@ -1,3 +1,13 @@
+var firebaseConfig = {
+  apiKey: 'AIzaSyAtFWPFnFvp4uBYB1te-KF1qBUGOk_bvrQ',
+  authDomain: "sz-zocial.firebaseapp.com",
+  projectId: "sz-zocial",
+  appId: "1:284175179333:web:372a0ceb0c96e943"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+
 Vue.component('nav-bar', {
   data: function () {
     return {
