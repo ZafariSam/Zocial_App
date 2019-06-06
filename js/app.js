@@ -467,6 +467,10 @@ var vm = new Vue({
       if(!this.customColor){
         return "Not Provided"
       } else {return this.customColor}
+    },
+
+    aspectHeight: function(){
+      return this.windowWidth/2;
     }
 
   },//End of Computed
