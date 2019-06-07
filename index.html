@@ -138,16 +138,20 @@
         height: 100%;
         overflow: hidden;
       }
-      .sb-details-mob{
+      .contain-sb-details{
+        bottom: 0px;
+        position: fixed;
+        z-index: 2;
+        width: 100%;
         display: none;
+      }
+      .sb-details-mob{
         width: 100%;
         height: 12vh;
-        position: fixed;
         background-color: var(--purple);
-        z-index: 2;
-        bottom: 0px;
+        box-shadow: 0px -10px 10px #0002;
       }
-      .sb-details-mob:hover{
+      .contain-sb-details:hover .sb-details-mob{
         height: 13vh;
       }
       .demo-scrn-tab{
@@ -284,7 +288,7 @@
         .ex-deatils{
           width: 100%;
         }
-        .sb-details-mob{
+        .contain-sb-details{
           display: block;
         }
         .process-panel{
@@ -640,7 +644,7 @@
       </transition>
 
       <div class="bk-txture"
-        style="height:100vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 150%; background-position: center;">
+        style="height:200vh; width: 100%; position: absolute; top: 85px; background-image: url('./img/svg/BKG_Txt.svg'); z-index: -99; background-size: 100%; background-repeat: no-repeat;">
       </div>
 
       <transition name="fade">
@@ -656,65 +660,75 @@
       </transition>
 
       <transition name="fade">
-        <div class="sb-details-mob"
+        <div
           v-if="selected"
-          style="box-shadow: 0px -10px 10px #0002"
-          v-bind:style="{height: mobTabHeight +'vh'}"
-          @click.stop="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight = null"
+          class="contain-sb-details"
           >
-          <div style="padding: 10px 50px">
-            <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
-            <div class="">
-              <p style="display: inline">Total Cost:</p>
-              <h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3>
-              <p style="display: inline"> {{currency}}</p></div>
-            <h5 style="margin:0; opacity: 0.5;">Delivery times: Within 3 days of confirmation</h5>
-            <h4 style="margin-bottom: 0px;">Campaign Includes:</h4>
+          <div
+            @click.stop="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight = 12"
+            style="padding: 20px 22px; width: 10px; height: 15px; background-color: var(--purple); border-radius: 100px; margin: 10px; box-shadow: 0px 0px 20px #0004;"
+            >
+            <img class="details-button-img"src="img/svg/More.svg" alt="expand" width="10px"
+              v-bind:style="{transform: 'rotate(' + buttonTog + '90deg)'}">
           </div>
-          <div style="padding:0 50px">
-            <div style="display: flex; width: 100%; margin: 10px 0">
-              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Custom Brand Colour:</h4>
+          <div class="sb-details-mob"
+            style=""
+            v-bind:style="{height: mobTabHeight +'vh'}"
+            @click.stop="mobTabHeight != 50  ? mobTabHeight = 50 : mobTabHeight = null"
+            >
+            <div style="padding: 10px 50px">
+              <h2 style='margin-bottom:0px'>{{ selectedTem.Title }}</h2>
+              <div class="">
+                <p style="display: inline">Total Cost:</p>
+                <h3 style="display: inline; margin-left: 10px">{{ currencySym }}{{calcVal }}</h3>
+                <p style="display: inline"> {{currency}}</p></div>
+              <h5 style="margin:0; opacity: 0.5;">Delivery times: Within 3 days of confirmation</h5>
+              <h4 style="margin-bottom: 0px;">Campaign Includes:</h4>
+            </div>
+            <div style="padding:0 50px">
+              <div style="display: flex; width: 100%; margin: 10px 0">
+                <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Custom Brand Colour:</h4>
+                <input
+                  style="margin-left: auto; width: 40px; background-color: #0000; border-style: solid; border-width: 1px; border-color: white; color: white;"
+                  type="text" name="" value=""
+                  placeholder="#ffffff"
+                  v-model="customColor"
+                  @focus="!customColor ? customColor = '#' : customColor"
+                  >
+                  <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
+              </div>
+              <div style="display: flex; width: 100%">
+                <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Video Posts:</h4>
+                <div class="" @click="vidNum > 1 ? vidNum-- : vidNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+                <h4 class="counter-01" style="">
+                  <b>{{ vidNum }}</b>
+                </h4>
+                <div class="" @click="vidNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+              </div>
+              <div style="display: flex; width: 100%">
+                <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Image Posts:</h4>
+                <div class="" @click="imgNum > 0 ? imgNum-- : imgNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
+                <h4 class="counter-01" style="">
+                  <b>{{ imgNum }}</b>
+                </h4>
+                <div class="" @click="imgNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
+              </div>
+            </div>
+            <div class="" style="display: flex; margin: 20px 40px">
               <input
-                style="margin-left: auto; width: 40px; background-color: #0000; border-style: solid; border-width: 1px; border-color: white; color: white;"
-                type="text" name="" value=""
-                placeholder="#ffffff"
-                v-model="customColor"
-                @focus="!customColor ? customColor = '#' : customColor"
-                >
-                <div class="custom-col-display" style="width:30px; border-radius: 0px 20px 20px 0px;" v-bind:style="{backgroundColor: customColor}"></div>
+                style="width: 70%;"
+                v-model="emailAdd"
+                type="text" name="fname" placeholder="Email Address..."
+                v-bind:style="{ backgroundColor: emailClass01[0], color: emailClass01[1]}">
+              <div
+                style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
+                @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd', 'emailClass01')"
+                class="Top-Btn"
+                >Submit
+              </div>
             </div>
-            <div style="display: flex; width: 100%">
-              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Video Posts:</h4>
-              <div class="" @click="vidNum > 1 ? vidNum-- : vidNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
-              <h4 class="counter-01" style="">
-                <b>{{ vidNum }}</b>
-              </h4>
-              <div class="" @click="vidNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
-            </div>
-            <div style="display: flex; width: 100%">
-              <h4 style="color: #fff8; padding: 10px 0px; font-weight: 800; margin: 0">Number of Image Posts:</h4>
-              <div class="" @click="imgNum > 0 ? imgNum-- : imgNum" style="cursor: pointer; margin-left: auto; width: 20px; height: 20px; padding: 10px;"><img src="img/svg/Minus.svg" alt="" style="width: 100%; "></div>
-              <h4 class="counter-01" style="">
-                <b>{{ imgNum }}</b>
-              </h4>
-              <div class="" @click="imgNum++" style="cursor: pointer; width: 20px; height: 20px; padding: 10px"><img src="img/svg/Plus.svg" alt="" style="width: 100%;"></div>
-            </div>
+            <div @click.stop="mobTabHeight = 12" style="text-align: center; cursor: pointer;" ><b>Close</b></div>
           </div>
-
-          <div class="" style="display: flex; margin: 20px 40px">
-            <input
-              style="width: 70%;"
-              v-model="emailAdd"
-              type="text" name="fname" placeholder="Email Address..."
-              v-bind:style="{ backgroundColor: emailClass01[0], color: emailClass01[1]}">
-            <div
-              style="border-radius: 0px 20px 20px 0px; margin: 0px; cursor: pointer;"
-              @click="validEmail(emailAdd, 'sendEmailMain', 'emailAdd', 'emailClass01')"
-              class="Top-Btn"
-              >Submit
-            </div>
-          </div>
-          <div @click.stop="mobTabHeight = 12" style="text-align: center; cursor: pointer;" ><b>Close</b></div>
         </div>
       </transition>
 
@@ -744,7 +758,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript">
-      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || 
+      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq ||
       {widgetcode:"e5e58bc8501ec62ea56b4b4317e61a6e56bdf2905243b2e67adadaad5d2ef05b3cd05e0057d1a8909ba0b14ceee5b6ca", values:{},ready:function(){}};
       var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;
       s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");

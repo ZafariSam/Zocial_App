@@ -1,5 +1,6 @@
-var firebaseConfig = {
-  apiKey: 'AIzaSyAtFWPFnFvp4uBYB1te-KF1qBUGOk_bvrQ',
+var firebaseConfig =
+{
+  apiKey: null,
   authDomain: "sz-zocial.firebaseapp.com",
   projectId: "sz-zocial",
   appId: "1:284175179333:web:372a0ceb0c96e943"
@@ -471,6 +472,12 @@ var vm = new Vue({
 
     aspectHeight: function(){
       return this.windowWidth/2;
+    },
+
+    buttonTog: function(){
+      if(this.mobTabHeight == 50){
+        return '+';
+      } else {return '-'}
     }
 
   },//End of Computed
@@ -529,7 +536,6 @@ var vm = new Vue({
           }
         }
       )};
-
 
   }, //End of Created Hook
 
