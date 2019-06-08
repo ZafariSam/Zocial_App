@@ -46,8 +46,8 @@ var vm = new Vue({
     preview: false,
 
     //Index Data
-    vidNum: 4,
-    imgNum: 2,
+    vidNum: 1,
+    imgNum: 1,
     emailAdd: "",
     customEmailAdd:"",
     checkedEmail:"",
