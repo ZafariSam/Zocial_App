@@ -270,6 +270,7 @@ var vm = new Vue({
         return re.test(email);
         },
 
+// Call like this: validEmail(emailAdd, 'sendEmailMain', 'emailAdd', 'emailClass01')
       validEmail: function(emailVar, send, emailMod, styleClass){
         let self = this;
         if (this.validateEmail(emailVar)) {
