@@ -34,8 +34,6 @@ Vue.component('nav-bar', {
         </div>`
 })
 
-
-
 var vm = new Vue({
   el: '#app',
   data: {
