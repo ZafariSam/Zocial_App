@@ -67,7 +67,7 @@ var vm = new Vue({
         Length: 30,
         Tagline: "Tagline for the template",
         Des: "A short description of the template and how it can use used.",
-        Costs: [450],
+        Costs: [550],
         Imgs: ["img/Thumbnails/101_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339504624",
@@ -78,7 +78,7 @@ var vm = new Vue({
         Length: 15,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [350],
+        Costs: [450],
         Imgs: ["img/Thumbnails/102_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339505170",
@@ -89,7 +89,7 @@ var vm = new Vue({
         Length: 15,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [400],
+        Costs: [500],
         Imgs: ["img/Thumbnails/103_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339505178",
@@ -100,7 +100,7 @@ var vm = new Vue({
         Length: 30,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [400],
+        Costs: [500],
         Imgs: ["img/Thumbnails/104_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339505185",
@@ -111,7 +111,7 @@ var vm = new Vue({
         Length: 15,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [500],
+        Costs: [600],
         Imgs: ["img/Thumbnails/105_Thumb.jpg",
         ],
         previewVid: "https://player.vimeo.com/339505205",
@@ -122,7 +122,7 @@ var vm = new Vue({
         Length: 15,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [500],
+        Costs: [600],
         Imgs: ["img/Thumbnails/106_Thumb.jpg",
         ],
         previewVid: "https://player.vimeo.com/339505219",
@@ -133,7 +133,7 @@ var vm = new Vue({
         Length: 30,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [600],
+        Costs: [700],
         Imgs: ["img/Thumbnails/107_Thumb.jpg",
         ],
         previewVid: "https://player.vimeo.com/339505269",
@@ -144,7 +144,7 @@ var vm = new Vue({
         Length: 30,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [500],
+        Costs: [600],
         Imgs: ["img/Thumbnails/108_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339505422",
@@ -155,7 +155,7 @@ var vm = new Vue({
         Length: 30,
         Tagline: "Tagline for the template",
         Des: "Description",
-        Costs: [500],
+        Costs: [600],
         Imgs: ["img/Thumbnails/109_Thumb.jpg",
         ],
         previewVid: "https://vimeo.com/339505358",
@@ -169,7 +169,7 @@ var vm = new Vue({
       Title: "Default",
       Tagline: "Tagline here",
       Des: "Description here",
-      Costs: [200, 100],
+      Costs: [500, 100],
       Imgs: ["../img/Stock/kenrick-mills-1567595-unsplash.jpg",
         ],
     },
@@ -424,7 +424,7 @@ var vm = new Vue({
   computed: {
     calcVal: function(){
       let costVal = this.selectedTem.Costs[0]*this.currencyBase
-      let valVid = Math.round(costVal + (this.vidNum * (costVal/4)));
+      let valVid = Math.round(costVal + (this.vidNum * (costVal/2)));
       let valImg = Math.round(this.imgNum * (costVal /10));
       let valTot = valVid + valImg;
       return valTot.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
